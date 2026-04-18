@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit 8 Quiz | Pursuing American Ideals</title>
+  <meta name="description" content="5-question interactive review covering Lessons 55, 56, and 59 — Reagan, the Cold War, and American Ideals.">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Site navigation">
+    <div class="site-nav-inner">
+      <a href="index.html" class="nav-brand">
+        <span class="nav-brand-dot" aria-hidden="true"></span>
+        Pursuing American Ideals
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="lesson-55.html" class="nav-link">L55 Reagan</a>
+        <a href="lesson-56.html" class="nav-link">L56 Cold War</a>
+        <a href="lesson-59.html" class="nav-link">L59 Ideals</a>
+        <a href="quiz.html" class="nav-link active">Quiz</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="quiz-layout">
+
+    <header class="quiz-header">
+      <span class="quiz-eyebrow">Unit 8 · Interactive Review</span>
+      <h1 class="quiz-title">Pursuing American Ideals — Quiz</h1>
+      <p class="quiz-subtitle">5 questions covering Lessons 55, 56, and 59.</p>
+    </header>
+
+    <div id="quiz-container">
+      <p class="progress-label" id="progress-label">Question 1 of 5</p>
+      <div class="progress-wrap">
+        <div class="progress-fill" id="progress-fill" style="width:0%"></div>
+      </div>
+
+      <div class="question-card" id="question-card">
+        <span class="question-lesson-tag" id="q-tag"></span>
+        <p class="question-text" id="q-text"></p>
+        <div class="options" id="options-list"></div>
+        <div class="explanation" id="explanation">
+          <span class="explanation-label">Why this answer</span>
+          <p id="explanation-text"></p>
+        </div>
+      </div>
+
+      <button class="next-btn" id="next-btn" aria-label="Next question">Next Question →</button>
+    </div>
+
+    <div class="score-screen" id="score-screen" role="status" aria-live="polite">
+      <p class="score-number" id="score-number"></p>
+      <span class="score-label">out of 5 correct</span>
+      <p class="score-message" id="score-message"></p>
+      <div class="score-breakdown">
+        <span class="breakdown-label">Question breakdown</span>
+        <div id="breakdown-list"></div>
+      </div>
+      <button class="retry-btn" id="retry-btn">Try Again</button>
+    </div>
+
+    <nav class="page-pager" aria-label="Quiz navigation">
+      <a href="lesson-59.html" class="pager-link prev">
+        <span class="pager-label">← Back</span>
+        <span class="pager-title">Lesson 59: American Ideals</span>
+      </a>
+      <a href="index.html" class="pager-link next">
+        <span class="pager-label">Done →</span>
+        <span class="pager-title">Back to Home</span>
+      </a>
+    </nav>
+
+  </main>
+
+</body>
+</html>
+  <script>
+    const QUESTIONS = [
+      {
+        lesson: 'Lesson 55 — Reagan',
+        q: "What was the primary economic theory behind Reagan's 1981 tax cuts?",
+        options: [
+          'Keynesian demand-side stimulus',
+          'Supply-side / trickle-down economics',
+          'Modern Monetary Theory',
+          'Import substitution industrialization'
+        ],
+        correct: 1,
+        hint: "Supply-side: cut taxes on the wealthy, expect investment to trickle down. Keynesian is the opposite — boost demand from the bottom."
+      },
+      {
+        lesson: 'Lesson 56 — Cold War',
+        q: 'What did the Intermediate-Range Nuclear Forces (INF) Treaty of 1987 accomplish?',
+        options: [
+          'It eliminated an entire class of nuclear missiles — the first time any arms control deal did that',
+          'It capped the total number of nuclear warheads each side could hold',
+          'It established the principle of "mutually assured destruction" as official policy',
+          'It committed both sides to reducing their defense budgets by 20%'
+        ],
+        correct: 0,
+        hint: "The INF actually eliminated missiles, not just capped them. Over 2,600 missiles were destroyed — first arms deal to ever do that."
+      },
+      {
+        lesson: 'Lesson 56 — Cold War',
+        q: 'What happened on November 9, 1989?',
+        options: [
+          'The Soviet Union formally dissolved into 15 independent states',
+          'Reagan and Gorbachev signed the INF Treaty in Washington',
+          'George H. W. Bush gave his "New World Order" speech to Congress',
+          'East Germany opened its borders and crowds began tearing down the Berlin Wall'
+        ],
+        correct: 3,
+        hint: "November 9 is the Wall. The USSR formally dissolved later, on December 25, 1991. The INF was signed in 1987, not 1989."
+      },
+      {
+        lesson: 'Lesson 59 — American Ideals',
+        q: 'Which 2021 Supreme Court case was the first to directly address off-campus, online student speech?',
+        options: [
+          'Tinker v. Des Moines Independent Community School District',
+          'Bell v. Itawamba County School Board',
+          'Mahanoy Area School District v. B.L.',
+          'Hazelwood School District v. Kuhlmeier'
+        ],
+        correct: 2,
+        hint: "Mahanoy (2021) was the first case about off-campus social media. Tinker is from 1969 and Hazelwood covers school newspapers, not personal posts."
+      },
+      {
+        lesson: 'Lesson 59 — American Ideals',
+        q: "What did the Supreme Court's ruling in Rucho v. Common Cause (2019) mean for partisan gerrymandering?",
+        options: [
+          'Federal courts must now review all congressional district maps before they take effect',
+          "Federal courts cannot hear partisan gerrymandering cases — it's a \"political question\" — but state courts still can",
+          'Partisan gerrymandering is unconstitutional and states must use independent commissions',
+          'The Equal Protection Clause prohibits any consideration of party affiliation in redistricting'
+        ],
+        correct: 1,
+        hint: "Roberts called it a political question. Federal courts stay out, but state courts can still act — that's where the fights moved after 2019."
+      }
+    ];
+
+    const STATE = { current: 0, answers: [], answered: false };
+    const LETTERS = ['A', 'B', 'C', 'D'];
+    const MESSAGES = [
+      { min: 5, msg: 'Perfect score! You clearly have the material down — Lessons 55, 56, and 59 are in solid shape.' },
+      { min: 4, msg: "Strong work. One slip, but the core concepts are there. Review the question you missed and you're ready." },
+      { min: 3, msg: 'Solid foundation. Review the questions you got wrong against the lesson exhibits and try again.' },
+      { min: 0, msg: 'Keep going. Go back through the three lesson exhibits and look for the ICED paragraphs — those are where the key facts live.' }
+    ];
+
+    function getMsg(score) { return MESSAGES.find(m => score >= m.min).msg; }
+
+    function render() {
+      const q = QUESTIONS[STATE.current];
+      STATE.answered = false;
+
+      document.getElementById('progress-label').textContent =
+        `Question ${STATE.current + 1} of ${QUESTIONS.length}`;
+      document.getElementById('progress-fill').style.width =
+        (STATE.current / QUESTIONS.length * 100) + '%';
+      document.getElementById('q-tag').textContent = q.lesson;
+      document.getElementById('q-text').textContent = q.q;
+
+      const optList = document.getElementById('options-list');
+      optList.innerHTML = '';
+      q.options.forEach((opt, i) => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.innerHTML = `<span class="option-letter">${LETTERS[i]}</span><span class="option-text">${opt}</span>`;
+        btn.addEventListener('click', () => handleAnswer(i));
+        optList.appendChild(btn);
+      });
+
+      const expl = document.getElementById('explanation');
+      expl.classList.remove('show');
+      document.getElementById('next-btn').classList.remove('show');
+      document.getElementById('next-btn').textContent =
+        STATE.current < QUESTIONS.length - 1 ? 'Next Question →' : 'See Results →';
+    }
+
+    function handleAnswer(selected) {
+      if (STATE.answered) return;
+      STATE.answered = true;
+      const q = QUESTIONS[STATE.current];
+      STATE.answers.push({ selected, correct: q.correct });
+
+      document.querySelectorAll('.option-btn').forEach((btn, i) => {
+        btn.disabled = true;
+        if (i === q.correct) btn.classList.add('correct');
+        else if (i === selected) btn.classList.add('wrong');
+      });
+
+      const isCorrect = selected === q.correct;
+      if (!isCorrect) {
+        document.getElementById('explanation-text').textContent = q.hint;
+        document.getElementById('explanation').classList.add('show');
+      }
+      document.getElementById('next-btn').classList.add('show');
+    }
+
+    function showScore() {
+      document.getElementById('quiz-container').style.display = 'none';
+      const score = STATE.answers.filter(a => a.selected === a.correct).length;
+      document.getElementById('score-number').textContent = score;
+      document.getElementById('score-message').textContent = getMsg(score);
+
+      const list = document.getElementById('breakdown-list');
+      list.innerHTML = '';
+      STATE.answers.forEach((a, i) => {
+        const row = document.createElement('div');
+        row.className = 'breakdown-row';
+        const passed = a.selected === a.correct;
+        row.innerHTML = `
+          <span class="breakdown-q">Q${i + 1}: ${QUESTIONS[i].q.slice(0, 60)}…</span>
+          <span class="breakdown-result ${passed ? 'pass' : 'fail'}">${passed ? '✓ Correct' : '✗ Missed'}</span>
+        `;
+        list.appendChild(row);
+      });
+
+      document.getElementById('score-screen').classList.add('show');
+    }
+
+    document.getElementById('next-btn').addEventListener('click', () => {
+      STATE.current++;
+      if (STATE.current >= QUESTIONS.length) showScore();
+      else render();
+    });
+
+    document.getElementById('retry-btn').addEventListener('click', () => {
+      STATE.current = 0;
+      STATE.answers = [];
+      STATE.answered = false;
+      document.getElementById('score-screen').classList.remove('show');
+      document.getElementById('quiz-container').style.display = 'block';
+      render();
+    });
+
+    render();
+  </script>
+
+</body>
+</html>
