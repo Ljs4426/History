@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 55: A Shift to the Right Under Reagan</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap');
+
+    /* === DESIGN TOKENS === */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:          #F5F2EB;
+      --surface:     #FFFFFF;
+      --ink:         #1A1A1A;
+      --ink-muted:   #4A4A4A;
+      --hairline:    #D9D4C7;
+      --highlight:   #FFD700;
+      --accent:      #B22234; /* Reagan red */
+      --font-serif:  'Playfair Display', Georgia, 'Times New Roman', serif;
+      --font-sans:   'Inter', -apple-system, 'Segoe UI', sans-serif;
+      --font-mono:   'JetBrains Mono', 'Courier New', monospace;
+      --sp-xs: 4px; --sp-sm: 8px; --sp-md: 16px; --sp-lg: 24px; --sp-xl: 48px;
+      --r-sm: 4px; --r-md: 8px;
+      --shadow-card: 0 1px 3px rgba(0,0,0,0.08);
+      --max-w: 720px;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--ink);
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: var(--sp-md) var(--sp-md) var(--sp-xl);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* === HERO === */
+    .widget-hero {
+      padding: var(--sp-xl) 0 var(--sp-lg);
+      border-bottom: 1px solid var(--hairline);
+      margin-bottom: var(--sp-xl);
+      position: relative;
+    }
+
+    .hero-flag {
+      display: flex;
+      gap: var(--sp-sm);
+      align-items: center;
+      margin-bottom: var(--sp-md);
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .hero-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--hairline);
+    }
+
+    .hero-unit {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      color: var(--ink-muted);
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: var(--sp-md);
+    }
+
+    .hero-question {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      color: var(--ink-muted);
+      font-style: italic;
+      margin-bottom: var(--sp-lg);
+      padding-left: var(--sp-md);
+      border-left: 3px solid var(--hairline);
+      line-height: 1.5;
+    }
+
+    .hero-accent-bar {
+      width: 40px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    /* === SECTION === */
+    .widget-section {
+      margin-bottom: var(--sp-xl);
+    }
+
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: var(--sp-lg);
+      padding-bottom: var(--sp-sm);
+      border-bottom: 1px solid var(--hairline);
+      display: block;
+    }
+
+    /* === EXAMPLE CARD === */
+    .card {
+      background: var(--surface);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--r-md);
+      box-shadow: var(--shadow-card);
+      padding: var(--sp-lg);
+      margin-bottom: var(--sp-lg);
+    }
+
+    .card-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: var(--sp-sm);
+    }
+
+    .card-title {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: var(--sp-md);
+      line-height: 1.3;
+    }
+
+    .card-body {
+      font-size: 0.93rem;
+      color: var(--ink);
+      margin-bottom: var(--sp-md);
+      line-height: 1.75;
+    }
+
+    .card-pov {
+      font-size: 0.875rem;
+      color: var(--ink-muted);
+      line-height: 1.65;
+      padding: var(--sp-md);
+      background: var(--bg);
+      border-radius: var(--r-sm);
+      border-top: 1px solid var(--hairline);
+      margin-top: var(--sp-md);
+    }
+
+    .pov-label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: block;
+      margin-bottom: var(--sp-xs);
+    }
+
+    /* === ICED BLOCK === */
+    .iced-block {
+      background: var(--surface);
+      border-radius: var(--r-md);
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+    }
+
+    .iced-part {
+      display: flex;
+      gap: var(--sp-md);
+      padding: var(--sp-md) var(--sp-lg);
+      border-bottom: 1px solid var(--hairline);
+      align-items: flex-start;
+    }
+
+    .iced-part:last-child { border-bottom: none; }
+
+    .iced-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--surface);
+      background: var(--accent);
+      min-width: 26px;
+      height: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--r-sm);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .iced-text {
+      font-size: 0.93rem;
+      line-height: 1.75;
+      color: var(--ink);
+    }
+
+    /* === IMPACT BLOCK === */
+    .impact-block {
+      background: var(--surface);
+      border-radius: var(--r-md);
+      box-shadow: var(--shadow-card);
+      padding: var(--sp-lg);
+      border-top: 3px solid var(--highlight);
+    }
+
+    .impact-block p {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--ink);
+    }
+
+    /* === PULL QUOTE === */
+    .pull-quote {
+      margin: var(--sp-lg) 0;
+      padding: var(--sp-md) var(--sp-lg);
+      border-left: 4px solid var(--accent);
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: var(--ink);
+    }
+
+    /* === SOURCES === */
+    .sources-block {
+      padding-top: var(--sp-lg);
+      border-top: 1px solid var(--hairline);
+      margin-top: var(--sp-xl);
+    }
+
+    .sources-list {
+      padding-left: var(--sp-lg);
+      list-style: decimal;
+    }
+
+    .sources-list li {
+      font-size: 0.83rem;
+      color: var(--ink-muted);
+      margin-bottom: var(--sp-sm);
+      line-height: 1.55;
+    }
+
+    .sources-list a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-decoration-color: var(--hairline);
+      word-break: break-all;
+    }
+
+    .sources-list a:hover { text-decoration-color: var(--accent); }
+
+    /* === FADE-IN === */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <header class="widget-hero">
+    <div class="hero-flag">
+      <span class="hero-eyebrow">Lesson 55</span>
+      <span class="hero-dot" aria-hidden="true"></span>
+      <span class="hero-unit">Unit 8 · Pursuing American Ideals</span>
+    </div>
+    <h1 class="hero-title">A Shift to the Right Under Reagan</h1>
+    <p class="hero-question">How did the Reagan Revolution impact the nation?</p>
+    <div class="hero-accent-bar" aria-hidden="true"></div>
+  </header>
+
+  <main>
+
+    <!-- ── THREE EXAMPLES ─────────────────────────────────── -->
+    <section class="widget-section" aria-label="Historical Examples">
+      <span class="section-label">Three Examples</span>
+
+      <article class="card fade-in" aria-label="Example 1: ERTA">
+        <div class="card-eyebrow">01 · 1981</div>
+        <h2 class="card-title">Economic Recovery Tax Act (ERTA)</h2>
+        <p class="card-body">The Economic Recovery Tax Act of 1981 slashed the top marginal income tax rate from 70% to 50%, eventually all the way down to 28% by 1986. The theory was supply-side economics — cut taxes on top earners and they'll invest more, which creates jobs and growth that "trickle down" to everyone else. Real GDP grew at roughly 3.5% annually during Reagan's second term and the S&amp;P 500 rose about 113% over his presidency.</p>
+        <div class="card-pov">
+          <span class="pov-label">POV Tension</span>
+          Supporters point to economic growth and job creation as proof the cuts worked. Critics note that the share of national income going to the top 1% began its sharp upward climb in the early 1980s and never reversed — meaning the growth went disproportionately to people who were already wealthy.
+        </div>
+      </article>
+
+      <article class="card fade-in" aria-label="Example 2: Deregulation">
+        <div class="card-eyebrow">02 · 1981–1989</div>
+        <h2 class="card-title">Deregulation: Banking, Airlines, and Broadcasting</h2>
+        <p class="card-body">Reagan accelerated deregulation across multiple sectors. Banking deregulation allowed savings and loan institutions to take on far riskier investments. Airlines were already deregulating under Carter, but Reagan pushed further in finance and broadcasting. Short-term, consumers got cheaper airfares and more TV channels. Long-term, the consequences were more complicated.</p>
+        <div class="card-pov">
+          <span class="pov-label">POV Tension</span>
+          The savings and loan crisis of the late 1980s collapsed over 1,000 financial institutions — the federal bailout cost taxpayers an estimated $124 billion. Supporters say deregulation created a more dynamic economy. Critics say it created exactly the conditions for crisis that it was supposed to prevent, and the bill went to ordinary Americans.
+        </div>
+      </article>
+
+      <article class="card fade-in" aria-label="Example 3: Military and Debt">
+        <div class="card-eyebrow">03 · 1981–1989</div>
+        <h2 class="card-title">Military Buildup and a Tripling National Debt</h2>
+        <p class="card-body">Reagan dramatically increased defense spending — from $158 billion in 1981 to over $300 billion by 1989. Combined with tax cuts that reduced revenue and no significant cuts elsewhere in the budget, the national debt nearly tripled over his two terms: from roughly $900 billion in 1980 to $2.8 trillion by 1989.</p>
+        <div class="card-pov">
+          <span class="pov-label">POV Tension</span>
+          Conservatives argue the military buildup put pressure on the Soviet Union and helped win the Cold War — worth the price. Critics point out that the political acceptability of large peacetime deficits, normalized in the 1980s, became a permanent feature of American fiscal policy. The U.S. has not run a sustained surplus since.
+        </div>
+      </article>
+    </section>
+
+    <!-- ── MODERN CONNECTION (ICED) ───────────────────────── -->
+    <section class="widget-section" aria-label="Modern Connection">
+      <span class="section-label">Modern Connection — ICED Method</span>
+
+      <div class="iced-block fade-in">
+        <div class="iced-part">
+          <span class="iced-label" aria-label="Introduce">I</span>
+          <p class="iced-text">The Tax Policy Center, a nonpartisan research group run by the Urban Institute and the Brookings Institution, tracks the long-term distributional effects of U.S. tax policy changes going back to the Reagan era.</p>
+        </div>
+        <div class="iced-part">
+          <span class="iced-label" aria-label="Cite">C</span>
+          <p class="iced-text">According to their analysis, the share of income going to the top 1% of American households roughly doubled between 1980 and 2020 ("Historical Highest Marginal Income Tax Rates," Tax Policy Center, 2023).</p>
+        </div>
+        <div class="iced-part">
+          <span class="iced-label" aria-label="Explain">E</span>
+          <p class="iced-text">This is the direct downstream effect of cutting the top marginal rate from 70% to 28% over Reagan's two terms, combined with deregulation that increased returns for financial-sector investors. Lower taxes on capital meant the people with the most capital accumulated the most gains.</p>
+        </div>
+        <div class="iced-part">
+          <span class="iced-label" aria-label="Discuss">D</span>
+          <p class="iced-text">Today, every argument about whether to raise taxes on top earners, regulate Wall Street, or close the wealth gap is a direct continuation of the framework Reagan set in 1981. The starting point of the debate — what tax rates are "normal" — was reset in those years and hasn't fully moved since.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── IMPORTANCE & IMPACT ────────────────────────────── -->
+    <section class="widget-section" aria-label="Importance and Impact">
+      <span class="section-label">Importance &amp; Impact</span>
+
+      <div class="impact-block fade-in">
+        <p>The Reagan Revolution didn't just change policy — it reset the defaults of American economics. Tax cuts as a primary tool, deregulation as a default instinct, and large peacetime deficits as politically tolerable all became bipartisan habits after 1989. Democrats and Republicans alike have operated inside those assumptions ever since. Every modern debate about marginal tax rates, financial regulation, and the national debt is a continuation of arguments that started in 1981, which means you can't really understand any of those fights without knowing what happened then.</p>
+      </div>
+    </section>
+
+    <!-- ── SOURCES ─────────────────────────────────────────── -->
+    <footer class="sources-block">
+      <span class="section-label">Sources</span>
+      <ol class="sources-list">
+        <li>Tax Policy Center. "Historical Highest Marginal Income Tax Rates." Urban Institute &amp; Brookings Institution, 2023. <a href="https://www.taxpolicycenter.org/statistics/historical-highest-marginal-income-tax-rates" target="_blank" rel="noopener noreferrer">taxpolicycenter.org</a></li>
+        <li>Pew Research Center. "Trends in U.S. Income and Wealth Inequality." January 2020. <a href="https://www.pewresearch.org/social-trends/2020/01/09/trends-in-income-and-wealth-inequality/" target="_blank" rel="noopener noreferrer">pewresearch.org</a></li>
+        <li>Congressional Budget Office. "The Long-Term Budget Outlook." Updated annually. <a href="https://www.cbo.gov/topics/budget" target="_blank" rel="noopener noreferrer">cbo.gov</a></li>
+        <li>Federal Reserve Bank of St. Louis (FRED). Historical GDP and market data. <a href="https://fred.stlouisfed.org" target="_blank" rel="noopener noreferrer">fred.stlouisfed.org</a></li>
+        <li>FDIC. "History of the Eighties." Federal Deposit Insurance Corporation, 1997. <a href="https://www.fdic.gov/bank/historical/history/" target="_blank" rel="noopener noreferrer">fdic.gov</a></li>
+      </ol>
+    </footer>
+
+  </main>
+
+  <script>
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+
+    // Fallback: Google Sites iframes can report zero intersection — reveal after 300ms
+    setTimeout(() => {
+      document.querySelectorAll('.fade-in:not(.visible)')
+        .forEach(el => el.classList.add('visible'));
+    }, 300);
+  </script>
+
+</body>
+</html>
