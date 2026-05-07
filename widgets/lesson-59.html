@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 59: Moving Forward — Debating America's Founding Ideals</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap');
+
+    /* === DESIGN TOKENS === */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:          #F5F2EB;
+      --surface:     #FFFFFF;
+      --ink:         #1A1A1A;
+      --ink-muted:   #4A4A4A;
+      --hairline:    #D9D4C7;
+      --highlight:   #FFD700;
+      --accent:      #6B4423; /* bronze — Ideals */
+      --font-serif:  'Playfair Display', Georgia, 'Times New Roman', serif;
+      --font-sans:   'Inter', -apple-system, 'Segoe UI', sans-serif;
+      --font-mono:   'JetBrains Mono', 'Courier New', monospace;
+      --sp-xs: 4px; --sp-sm: 8px; --sp-md: 16px; --sp-lg: 24px; --sp-xl: 48px;
+      --r-sm: 4px; --r-md: 8px;
+      --shadow-card: 0 1px 3px rgba(0,0,0,0.08);
+      --max-w: 720px;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--ink);
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: var(--sp-md) var(--sp-md) var(--sp-xl);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .widget-hero {
+      padding: var(--sp-xl) 0 var(--sp-lg);
+      border-bottom: 1px solid var(--hairline);
+      margin-bottom: var(--sp-xl);
+    }
+
+    .hero-flag {
+      display: flex;
+      gap: var(--sp-sm);
+      align-items: center;
+      margin-bottom: var(--sp-md);
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .hero-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--hairline);
+    }
+
+    .hero-unit {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      color: var(--ink-muted);
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: var(--sp-md);
+    }
+
+    .hero-question {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      color: var(--ink-muted);
+      font-style: italic;
+      margin-bottom: var(--sp-lg);
+      padding-left: var(--sp-md);
+      border-left: 3px solid var(--hairline);
+      line-height: 1.5;
+    }
+
+    .hero-accent-bar {
+      width: 40px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    .widget-section { margin-bottom: var(--sp-xl); }
+
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: var(--sp-lg);
+      padding-bottom: var(--sp-sm);
+      border-bottom: 1px solid var(--hairline);
+      display: block;
+    }
+
+    .card {
+      background: var(--surface);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--r-md);
+      box-shadow: var(--shadow-card);
+      padding: var(--sp-lg);
+      margin-bottom: var(--sp-lg);
+    }
+
+    .card-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: var(--sp-sm);
+    }
+
+    .card-title {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: var(--sp-sm);
+      line-height: 1.3;
+    }
+
+    /* Case snapshot — unique to L59 */
+    .case-snapshot {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sp-md);
+      margin-bottom: var(--sp-md);
+      padding: var(--sp-sm) var(--sp-md);
+      background: var(--bg);
+      border-radius: var(--r-sm);
+      border: 1px solid var(--hairline);
+    }
+
+    .case-snapshot dt {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 2px;
+    }
+
+    .case-snapshot dd {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin: 0;
+    }
+
+    .case-snapshot .snap-item {
+      display: flex;
+      flex-direction: column;
+      min-width: 80px;
+    }
+
+    .ideal-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--sp-xs);
+      padding: 2px var(--sp-sm);
+      border: 1px solid var(--accent);
+      border-radius: 12px;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: var(--sp-md);
+    }
+
+    .card-body {
+      font-size: 0.93rem;
+      color: var(--ink);
+      margin-bottom: var(--sp-md);
+      line-height: 1.75;
+    }
+
+    .card-pov {
+      font-size: 0.875rem;
+      color: var(--ink-muted);
+      line-height: 1.65;
+      padding: var(--sp-md);
+      background: var(--bg);
+      border-radius: var(--r-sm);
+      border-top: 1px solid var(--hairline);
+      margin-top: var(--sp-md);
+    }
+
+    .pov-label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: block;
+      margin-bottom: var(--sp-xs);
+    }
+
+    .tactic-label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      display: block;
+      margin-bottom: var(--sp-xs);
+      margin-top: var(--sp-sm);
+    }
+
+    .iced-block {
+      background: var(--surface);
+      border-radius: var(--r-md);
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+    }
+
+    .iced-part {
+      display: flex;
+      gap: var(--sp-md);
+      padding: var(--sp-md) var(--sp-lg);
+      border-bottom: 1px solid var(--hairline);
+      align-items: flex-start;
+    }
+
+    .iced-part:last-child { border-bottom: none; }
+
+    .iced-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--surface);
+      background: var(--accent);
+      min-width: 26px;
+      height: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--r-sm);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .iced-text {
+      font-size: 0.93rem;
+      line-height: 1.75;
+      color: var(--ink);
+    }
+
+    .impact-block {
+      background: var(--surface);
+      border-radius: var(--r-md);
+      box-shadow: var(--shadow-card);
+      padding: var(--sp-lg);
+      border-top: 3px solid var(--highlight);
+    }
+
+    .impact-block p {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--ink);
+    }
+
+    .sources-block {
+      padding-top: var(--sp-lg);
+      border-top: 1px solid var(--hairline);
+      margin-top: var(--sp-xl);
+    }
+
+    .sources-list {
+      padding-left: var(--sp-lg);
+      list-style: decimal;
+    }
+
+    .sources-list li {
+      font-size: 0.83rem;
+      color: var(--ink-muted);
+      margin-bottom: var(--sp-sm);
+      line-height: 1.55;
+    }
+
+    .sources-list a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-decoration-color: var(--hairline);
+      word-break: break-all;
+    }
+
+    .sources-list a:hover { text-decoration-color: var(--accent); }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <header class="widget-hero">
+    <div class="hero-flag">
+      <span class="hero-eyebrow">Lesson 59</span>
+      <span class="hero-dot" aria-hidden="true"></span>
+      <span class="hero-unit">Unit 8 · Pursuing American Ideals</span>
+    </div>
+    <h1 class="hero-title">Moving Forward — Debating America's Founding Ideals</h1>
+    <p class="hero-question">How does our nation define and debate progress as we work to preserve American ideals?</p>
+    <div class="hero-accent-bar" aria-hidden="true"></div>
+  </header>
+
+  <main>
+
+    <!-- ── THREE EXAMPLES ─────────────────────────────────── -->
+    <section class="widget-section" aria-label="Historical Examples">
+      <span class="section-label">Three Examples</span>
+
+      <article class="card fade-in" aria-label="Example 1: Mahanoy v BL">
+        <div class="card-eyebrow">01 · Securing Liberty</div>
+        <span class="ideal-tag">First Amendment · Student Speech</span>
+        <h2 class="card-title">Mahanoy Area School District v. B.L. (2021)</h2>
+
+        <dl class="case-snapshot" aria-label="Case snapshot">
+          <div class="snap-item">
+            <dt>Decided</dt>
+            <dd>June 2021</dd>
+          </div>
+          <div class="snap-item">
+            <dt>Vote</dt>
+            <dd>8 – 1</dd>
+          </div>
+          <div class="snap-item">
+            <dt>Court</dt>
+            <dd>U.S. Supreme Court</dd>
+          </div>
+          <div class="snap-item">
+            <dt>Author</dt>
+            <dd>Justice Breyer</dd>
+          </div>
+        </dl>
+
+        <p class="card-body">A high school cheerleader in Pennsylvania didn't make varsity and posted a profanity-filled Snapchat from off campus over the weekend. Her school suspended her from the team. She — and the ACLU — sued. The Supreme Court ruled 8-1 that the school violated her First Amendment rights. It's the most important student speech ruling since <em>Tinker v. Des Moines</em> in 1969, and the first time the Court directly addressed off-campus, online student speech.</p>
+
+        <div class="card-pov">
+          <span class="pov-label">What It Settled (and Didn't)</span>
+          The Court said schools have "diminished" authority over off-campus speech but didn't draw a bright line. Schools can still police off-campus cyberbullying and academic dishonesty. But a student's private social media post from home, outside school hours, is now substantially protected by the First Amendment. The Tinker armband is now a Snapchat.
+          <span class="tactic-label">Tactic Used</span>
+          Strategic ACLU litigation, building on 50+ years of Tinker precedent, framed as a chilling effect on political speech.
+        </div>
+      </article>
+
+      <article class="card fade-in" aria-label="Example 2: Bostock v Clayton County">
+        <div class="card-eyebrow">02 · Safeguarding Equality</div>
+        <span class="ideal-tag">Title VII · Employment · LGBTQ+ Rights</span>
+        <h2 class="card-title">Bostock v. Clayton County, Georgia (2020)</h2>
+
+        <dl class="case-snapshot" aria-label="Case snapshot">
+          <div class="snap-item">
+            <dt>Decided</dt>
+            <dd>June 2020</dd>
+          </div>
+          <div class="snap-item">
+            <dt>Vote</dt>
+            <dd>6 – 3</dd>
+          </div>
+          <div class="snap-item">
+            <dt>Court</dt>
+            <dd>U.S. Supreme Court</dd>
+          </div>
+          <div class="snap-item">
+            <dt>Author</dt>
+            <dd>Justice Gorsuch</dd>
+          </div>
+        </dl>
+
+        <p class="card-body">Title VII of the Civil Rights Act of 1964 prohibits employment discrimination "because of sex." In <em>Bostock</em>, the Supreme Court ruled 6-3 that this language also protects employees from discrimination based on sexual orientation and gender identity. The majority opinion was written by Justice Gorsuch — a Trump appointee and one of the Court's most committed textualists — who applied a strict reading of what "because of sex" means.</p>
+
+        <div class="card-pov">
+          <span class="pov-label">Why It Mattered</span>
+          Before <em>Bostock</em>, LGBTQ+ employees in more than half of U.S. states had no explicit federal employment protection. After <em>Bostock</em>, they did — through a statute written in 1964, reinterpreted without any new legislation. The decision showed that expanding equality protections doesn't always require Congress to act; it can happen through courts reinterpreting existing law.
+          <span class="tactic-label">Tactic Used</span>
+          Strategic case consolidation — three separate cases (Bostock, Altitude Express, R.G. &amp; G.R. Harris Funeral Homes) combined to maximize the chance of a single unified national ruling.
+        </div>
+      </article>
+
+      <article class="card fade-in" aria-label="Example 3: Rucho v Common Cause">
+        <div class="card-eyebrow">03 · Defending Democracy</div>
+        <span class="ideal-tag">Redistricting · Gerrymandering · Voting</span>
+        <h2 class="card-title">Rucho v. Common Cause (2019) — and the State-Level Response</h2>
+
+        <dl class="case-snapshot" aria-label="Case snapshot">
+          <div class="snap-item">
+            <dt>Decided</dt>
+            <dd>June 2019</dd>
+          </div>
+          <div class="snap-item">
+            <dt>Vote</dt>
+            <dd>5 – 4</dd>
+          </div>
+          <div class="snap-item">
+            <dt>Court</dt>
+            <dd>U.S. Supreme Court</dd>
+          </div>
+          <div class="snap-item">
+            <dt>Author</dt>
+            <dd>Chief Justice Roberts</dd>
+          </div>
+        </dl>
+
+        <p class="card-body">The Supreme Court ruled 5-4 in <em>Rucho</em> that federal courts cannot hear claims of partisan gerrymandering — they're "political questions" beyond the judiciary's reach. The ruling closed the federal door on challenges to maps drawn to entrench one party's power, even when the maps are extreme. But the decision explicitly noted that state courts and state constitutions remained valid venues.</p>
+
+        <div class="card-pov">
+          <span class="pov-label">What Happened Next</span>
+          Since 2019, advocacy groups shifted strategy to the state level: independent redistricting commissions in Michigan, Colorado, Arizona, and California; state supreme court rulings in Pennsylvania and North Carolina striking down partisan maps; and ballot initiatives bypassing legislatures entirely. When one venue closes, the fight moves to another.
+          <span class="tactic-label">Tactic Used</span>
+          Venue-shifting — from federal courts to state courts, ballot initiatives, and independent commission campaigns after the federal door closed.
+        </div>
+      </article>
+    </section>
+
+    <!-- ── MODERN CONNECTION (ICED) ───────────────────────── -->
+    <section class="widget-section" aria-label="Modern Connection">
+      <span class="section-label">Modern Connection — ICED Method</span>
+
+      <div class="iced-block fade-in">
+        <div class="iced-part">
+          <span class="iced-label" aria-label="Introduce">I</span>
+          <p class="iced-text">In June 2021, the Supreme Court issued its first ruling specifically addressing off-campus, online student speech in <em>Mahanoy Area School District v. B.L.</em> — a case that started with a cheerleader's expletive-filled Snapchat story sent from a convenience store on a Saturday.</p>
+        </div>
+        <div class="iced-part">
+          <span class="iced-label" aria-label="Cite">C</span>
+          <p class="iced-text">Writing for an 8-1 majority, Justice Breyer held that schools have "diminished" authority over off-campus student speech and that punishing the student's Snapchat post violated the First Amendment (<em>Mahanoy Area School District v. B.L.</em>, 594 U.S. ___, 2021).</p>
+        </div>
+        <div class="iced-part">
+          <span class="iced-label" aria-label="Explain">E</span>
+          <p class="iced-text">The ruling extended the 1969 <em>Tinker v. Des Moines</em> framework — which held that students don't "shed their constitutional rights at the schoolhouse gate" — into the era of social media, partially protecting off-campus online speech while leaving room for schools to address cyberbullying and cheating.</p>
+        </div>
+        <div class="iced-part">
+          <span class="iced-label" aria-label="Discuss">D</span>
+          <p class="iced-text">For students today, this is the case that governs what you can post on Snapchat, Instagram, or TikTok without your school punishing you for it. It's the modern version of Mary Beth Tinker's black armband, just digital and with a lot more reach — and it shows that defending liberty isn't a one-time achievement; it gets re-litigated in every generation's medium.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── IMPORTANCE & IMPACT ────────────────────────────── -->
+    <section class="widget-section" aria-label="Importance and Impact">
+      <span class="section-label">Importance &amp; Impact</span>
+
+      <div class="impact-block fade-in">
+        <p>The American ideals in the Declaration and the Constitution aren't self-enforcing. They get defended through specific tactics: strategic litigation, Supreme Court precedent-building, state-level workarounds, ballot initiatives, advocacy coalitions, and grassroots pressure. Each generation re-fights for them in whatever venues are available. The fights look different now — Snapchat instead of armbands, redistricting commissions instead of Voting Rights Act lawsuits — but the underlying work is the same. Three cases from 2019 to 2021 added new chapters to that story, and the chapters being written right now are just as consequential.</p>
+      </div>
+    </section>
+
+    <!-- ── SOURCES ─────────────────────────────────────────── -->
+    <footer class="sources-block">
+      <span class="section-label">Sources</span>
+      <ol class="sources-list">
+        <li><em>Mahanoy Area School District v. B.L.</em>, 594 U.S. ___ (2021). Full opinion: <a href="https://www.supremecourt.gov/opinions/20pdf/20-255_g3bi.pdf" target="_blank" rel="noopener noreferrer">supremecourt.gov</a></li>
+        <li>ACLU. "Mahanoy Area School District v. B.L." Case page. <a href="https://www.aclu.org/cases/mahanoy-area-school-district-v-bl" target="_blank" rel="noopener noreferrer">aclu.org</a></li>
+        <li><em>Bostock v. Clayton County, Georgia</em>, 590 U.S. 644 (2020). Full opinion: <a href="https://www.supremecourt.gov/opinions/19pdf/17-1618_hfci.pdf" target="_blank" rel="noopener noreferrer">supremecourt.gov</a></li>
+        <li><em>Rucho v. Common Cause</em>, 588 U.S. 684 (2019). Full opinion: <a href="https://www.supremecourt.gov/opinions/18pdf/18-422_9ol1.pdf" target="_blank" rel="noopener noreferrer">supremecourt.gov</a></li>
+        <li>Brennan Center for Justice. "Redistricting Commissions." <a href="https://www.brennancenter.org/our-work/research-reports/redistricting-commissions" target="_blank" rel="noopener noreferrer">brennancenter.org</a></li>
+        <li><em>Tinker v. Des Moines Independent Community School District</em>, 393 U.S. 503 (1969). Background precedent.</li>
+      </ol>
+    </footer>
+
+  </main>
+
+  <script>
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+
+    setTimeout(() => {
+      document.querySelectorAll('.fade-in:not(.visible)')
+        .forEach(el => el.classList.add('visible'));
+    }, 300);
+  </script>
+
+</body>
+</html>
