@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conclusion | Pursuing American Ideals</title>
+  <meta name="description" content="What do three lessons on Reagan, the Cold War, and the Supreme Court add up to? A look at how the 1980s and 1990s still shape everything happening now.">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Site navigation">
+    <div class="site-nav-inner">
+      <a href="index.html" class="nav-brand">
+        <span class="nav-brand-dot" aria-hidden="true"></span>
+        Pursuing American Ideals
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="lesson-55.html" class="nav-link">L55 Reagan</a>
+        <a href="lesson-56.html" class="nav-link">L56 Cold War</a>
+        <a href="lesson-59.html" class="nav-link">L59 Ideals</a>
+        <a href="quiz.html" class="nav-link">Quiz</a>
+        <a href="conclusion.html" class="nav-link active">Conclusion</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <header class="widget-hero">
+      <div class="hero-flag">
+        <span class="hero-eyebrow">Unit 8</span>
+        <span class="hero-dot" aria-hidden="true"></span>
+        <span class="hero-unit">Pursuing American Ideals</span>
+      </div>
+      <h1 class="hero-title">Conclusion</h1>
+      <p class="hero-question">What do these three lessons actually add up to?</p>
+      <div class="hero-accent-bar" aria-hidden="true"></div>
+    </header>
+
+    <section class="widget-section" aria-label="Conclusion">
+
+      <article class="card fade-in">
+        <div class="card-eyebrow">Lesson 55</div>
+        <h2 class="card-title">Reagan Reset the Baseline</h2>
+        <p class="card-body">The tax cuts, deregulation, and deficits from 1981 didn't just change policy for eight years — they changed what both parties treat as normal. The top income tax rate has never gone back above 40%. The national debt has never come back down. Every argument about taxes or the size of government since then has started from assumptions Reagan put in place (TCI; Miller Center, 2024).</p>
+      </article>
+
+      <article class="card fade-in">
+        <div class="card-eyebrow">Lesson 56</div>
+        <h2 class="card-title">The Cold War Didn't Really End</h2>
+        <p class="card-body">The Berlin Wall fell and the USSR dissolved, but the tensions didn't disappear — they just paused. NATO expanded eastward, the INF Treaty collapsed in 2019, and Russia invaded Ukraine in 2022. The decisions made between 1989 and 1999 about what the post-Cold War world would look like are still playing out right now (Mearsheimer, <em>Foreign Affairs</em>, 2022).</p>
+      </article>
+
+      <article class="card fade-in">
+        <div class="card-eyebrow">Lesson 59</div>
+        <h2 class="card-title">Rights Get Re-Litigated Every Generation</h2>
+        <p class="card-body">Mahanoy, Bostock, and Rucho all came from the same Constitution that's been in place since 1789. The words don't change — what changes is who's asking the question and what technology or social context they're asking it in. A cheerleader's Snapchat, a gay worker's employment status, a gerrymandered district map. The rights were always there. Someone had to fight to apply them (Oyez, 2021; TCI).</p>
+      </article>
+
+    </section>
+
+    <section class="widget-section" aria-label="The Through-Line">
+      <span class="section-label">The Through-Line</span>
+      <div class="impact-block fade-in">
+        <p>All three lessons point at the same thing: decisions made decades ago don't stay in the past. Reagan's tax policy shows up in every debate about the wealth gap today. The Cold War's messy ending shows up in the news every time Russia moves troops. The Supreme Court cases from 2019 to 2021 will shape what the next generation can say online, who gets workplace protection, and how much their vote actually counts. History isn't a list of finished events — it's the explanation for why things are the way they are right now.</p>
+      </div>
+    </section>
+
+    <nav class="page-pager" aria-label="Lesson navigation">
+      <a href="quiz.html" class="pager-link prev">
+        <span class="pager-label">← Back</span>
+        <span class="pager-title">Unit 8 Quiz</span>
+      </a>
+      <a href="index.html" class="pager-link next">
+        <span class="pager-label">Home →</span>
+        <span class="pager-title">Pursuing American Ideals</span>
+      </a>
+    </nav>
+
+  </main>
+
+  <script>
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+    setTimeout(() => {
+      document.querySelectorAll('.fade-in:not(.visible)').forEach(el => el.classList.add('visible'));
+    }, 300);
+  </script>
+
+</body>
+</html>
