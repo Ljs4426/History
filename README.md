@@ -18,6 +18,34 @@
 
 ---
 
+## GitHub Pages Site
+
+The repo root serves as a full multi-page GitHub Pages site.
+
+### Live URL (after Pages is enabled)
+```
+https://ljs4426.github.io/History/
+```
+
+### Enable GitHub Pages (one-time setup)
+1. Go to the repo on GitHub → **Settings → Pages**
+2. Source: **Deploy from a branch**
+3. Branch: `claude/build-history-site-widgets-Qaihu` (or merge to `main` first) · Folder: `/ (root)`
+4. Click **Save** — the site goes live in ~1 minute
+
+### GitHub Pages file map
+| File | URL path |
+|---|---|
+| `index.html` | `/` — home page |
+| `lesson-55.html` | `/lesson-55.html` — Reagan exhibit |
+| `lesson-56.html` | `/lesson-56.html` — Cold War exhibit |
+| `lesson-59.html` | `/lesson-59.html` — American Ideals exhibit |
+| `quiz.html` | `/quiz.html` — interactive quiz |
+| `assets/site.css` | shared design system for all pages |
+| `.nojekyll` | disables Jekyll so files are served as-is |
+
+---
+
 ## How to Embed in Google Sites
 
 ### Step 1: Build the site structure
