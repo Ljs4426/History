@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pursuing American Ideals — Unit 8</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:          #F5F2EB;
+      --surface:     #FFFFFF;
+      --ink:         #1A1A1A;
+      --ink-muted:   #4A4A4A;
+      --hairline:    #D9D4C7;
+      --highlight:   #FFD700;
+      --accent-55:   #B22234;
+      --accent-56:   #0B3D91;
+      --accent-59:   #6B4423;
+      --font-serif:  'Playfair Display', Georgia, 'Times New Roman', serif;
+      --font-sans:   'Inter', -apple-system, 'Segoe UI', sans-serif;
+      --font-mono:   'JetBrains Mono', 'Courier New', monospace;
+      --sp-xs: 4px; --sp-sm: 8px; --sp-md: 16px; --sp-lg: 24px; --sp-xl: 48px;
+      --r-sm: 4px; --r-md: 8px;
+      --shadow-card: 0 1px 3px rgba(0,0,0,0.08);
+      --max-w: 720px;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--ink);
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: var(--sp-md) var(--sp-md) var(--sp-xl);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* === HERO === */
+    .site-hero {
+      padding: var(--sp-xl) 0;
+      border-bottom: 1px solid var(--hairline);
+      margin-bottom: var(--sp-xl);
+    }
+
+    .site-label {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      display: block;
+      margin-bottom: var(--sp-md);
+    }
+
+    .site-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: var(--sp-md);
+    }
+
+    .site-title span {
+      display: block;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 0.6em;
+      color: var(--ink-muted);
+      margin-bottom: var(--sp-sm);
+    }
+
+    .site-byline {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--ink-muted);
+      margin-bottom: var(--sp-lg);
+      letter-spacing: 0.05em;
+    }
+
+    .site-intro {
+      font-size: 0.98rem;
+      line-height: 1.8;
+      color: var(--ink);
+      max-width: 600px;
+      margin-bottom: var(--sp-lg);
+    }
+
+    .highlight-bar {
+      width: 48px;
+      height: 3px;
+      background: var(--highlight);
+      border-radius: 2px;
+    }
+
+    /* === LESSON CARDS === */
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: var(--sp-lg);
+      padding-bottom: var(--sp-sm);
+      border-bottom: 1px solid var(--hairline);
+      display: block;
+    }
+
+    .lesson-cards {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-md);
+      margin-bottom: var(--sp-xl);
+    }
+
+    .lesson-card {
+      background: var(--surface);
+      border-radius: var(--r-md);
+      box-shadow: var(--shadow-card);
+      text-decoration: none;
+      display: flex;
+      overflow: hidden;
+      transition: box-shadow 0.25s ease, transform 0.25s ease;
+    }
+
+    .lesson-card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transform: translateY(-1px);
+    }
+
+    .lesson-card-accent {
+      width: 6px;
+      flex-shrink: 0;
+    }
+
+    .lesson-card-body {
+      padding: var(--sp-lg);
+      flex: 1;
+    }
+
+    .lesson-card-num {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: var(--sp-sm);
+    }
+
+    .lesson-card-title {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: var(--sp-sm);
+      line-height: 1.3;
+    }
+
+    .lesson-card-q {
+      font-size: 0.85rem;
+      color: var(--ink-muted);
+      font-style: italic;
+      line-height: 1.5;
+      margin-bottom: var(--sp-md);
+    }
+
+    .lesson-card-cta {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--sp-sm);
+    }
+
+    .lesson-card-cta::after {
+      content: '→';
+      font-style: normal;
+    }
+
+    .card-55 .lesson-card-accent { background: var(--accent-55); }
+    .card-55 .lesson-card-num    { color: var(--accent-55); }
+    .card-55 .lesson-card-cta    { color: var(--accent-55); }
+
+    .card-56 .lesson-card-accent { background: var(--accent-56); }
+    .card-56 .lesson-card-num    { color: var(--accent-56); }
+    .card-56 .lesson-card-cta    { color: var(--accent-56); }
+
+    .card-59 .lesson-card-accent { background: var(--accent-59); }
+    .card-59 .lesson-card-num    { color: var(--accent-59); }
+    .card-59 .lesson-card-cta    { color: var(--accent-59); }
+
+    /* === QUICK FACTS === */
+    .quick-facts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sp-md);
+      margin-bottom: var(--sp-xl);
+    }
+
+    .fact-chip {
+      background: var(--surface);
+      border: 1px solid var(--hairline);
+      border-radius: var(--r-md);
+      padding: var(--sp-md) var(--sp-lg);
+      flex: 1;
+      min-width: 140px;
+    }
+
+    .fact-chip dt {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: var(--sp-xs);
+    }
+
+    .fact-chip dd {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    /* === FADE-IN === */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── SITE HERO ────────────────────────────────────────── -->
+  <header class="site-hero">
+    <span class="site-label">AP U.S. History · Unit 8 · Jacobs HS D300</span>
+    <h1 class="site-title">
+      <span>A Digital Museum</span>
+      Pursuing American Ideals
+    </h1>
+    <p class="site-byline">By Luke Sanders &nbsp;·&nbsp; Spring 2026</p>
+    <p class="site-intro">From the Reagan Revolution to the fall of the Berlin Wall to landmark Supreme Court rulings, Unit 8 covers the forces that reshaped America from the early 1980s to right now. Three lessons. Three eras. One through-line: the ideals in the Constitution keep getting tested, and every generation has to decide whether they're going to defend them.</p>
+    <div class="highlight-bar" aria-hidden="true"></div>
+  </header>
+
+  <!-- ── QUICK FACTS ──────────────────────────────────────── -->
+  <section aria-label="Unit at a glance" class="fade-in">
+    <span class="section-label">Unit at a Glance</span>
+    <dl class="quick-facts">
+      <div class="fact-chip">
+        <dt>Time Period</dt>
+        <dd>1981 – Present</dd>
+      </div>
+      <div class="fact-chip">
+        <dt>Lessons</dt>
+        <dd>55, 56, 59</dd>
+      </div>
+      <div class="fact-chip">
+        <dt>Total Examples</dt>
+        <dd>9 across 3 lessons</dd>
+      </div>
+      <div class="fact-chip">
+        <dt>Unit Theme</dt>
+        <dd>Pursuing American Ideals</dd>
+      </div>
+    </dl>
+  </section>
+
+  <!-- ── LESSON CARDS ─────────────────────────────────────── -->
+  <section aria-label="Lesson pages">
+    <span class="section-label">Three Lessons</span>
+
+    <div class="lesson-cards">
+
+      <!-- NOTE: Replace href values with your actual Google Sites page URLs after publishing -->
+      <a href="#lesson-55" class="lesson-card card-55 fade-in" aria-label="Go to Lesson 55">
+        <div class="lesson-card-accent" aria-hidden="true"></div>
+        <div class="lesson-card-body">
+          <div class="lesson-card-num">Lesson 55 · 1981–1989</div>
+          <h2 class="lesson-card-title">A Shift to the Right Under Reagan</h2>
+          <p class="lesson-card-q">How did the Reagan Revolution impact the nation?</p>
+          <span class="lesson-card-cta">Explore the exhibit</span>
+        </div>
+      </a>
+
+      <a href="#lesson-56" class="lesson-card card-56 fade-in" aria-label="Go to Lesson 56">
+        <div class="lesson-card-accent" aria-hidden="true"></div>
+        <div class="lesson-card-body">
+          <div class="lesson-card-num">Lesson 56 · 1985–1991</div>
+          <h2 class="lesson-card-title">Ending the Cold War</h2>
+          <p class="lesson-card-q">What were the effects of Reagan's and Bush's foreign policy actions?</p>
+          <span class="lesson-card-cta">Explore the exhibit</span>
+        </div>
+      </a>
+
+      <a href="#lesson-59" class="lesson-card card-59 fade-in" aria-label="Go to Lesson 59">
+        <div class="lesson-card-accent" aria-hidden="true"></div>
+        <div class="lesson-card-body">
+          <div class="lesson-card-num">Lesson 59 · 2019–Present</div>
+          <h2 class="lesson-card-title">Moving Forward — Debating America's Founding Ideals</h2>
+          <p class="lesson-card-q">How does our nation define and debate progress as we preserve American ideals?</p>
+          <span class="lesson-card-cta">Explore the exhibit</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <script>
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+
+    setTimeout(() => {
+      document.querySelectorAll('.fade-in:not(.visible)')
+        .forEach(el => el.classList.add('visible'));
+    }, 300);
+  </script>
+
+</body>
+</html>

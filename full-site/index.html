@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pursuing American Ideals — Unit 8 | Luke Sanders</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:         #F5F2EB;
+      --surface:    #FFFFFF;
+      --ink:        #1A1A1A;
+      --ink-muted:  #4A4A4A;
+      --hairline:   #D9D4C7;
+      --highlight:  #FFD700;
+      --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+      --font-sans:  'Inter', -apple-system, 'Segoe UI', sans-serif;
+      --font-mono:  'JetBrains Mono', 'Courier New', monospace;
+      --sp-xs: 4px; --sp-sm: 8px; --sp-md: 16px; --sp-lg: 24px; --sp-xl: 48px;
+      --r-sm: 4px; --r-md: 8px; --r-lg: 12px;
+      --shadow-card: 0 1px 3px rgba(0,0,0,0.08);
+      --max-w: 720px;
+    }
+
+    /* Per-lesson accent via data-lesson attribute */
+    [data-lesson="55"] { --accent: #B22234; }
+    [data-lesson="56"] { --accent: #0B3D91; }
+    [data-lesson="59"] { --accent: #6B4423; }
+
+    /* === NAV === */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--surface);
+      border-bottom: 1px solid var(--hairline);
+      padding: var(--sp-sm) var(--sp-md);
+      display: flex;
+      gap: var(--sp-md);
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .site-nav a {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      text-decoration: none;
+      padding: var(--sp-xs) var(--sp-sm);
+      border-radius: var(--r-sm);
+      transition: color 0.2s, background 0.2s;
+    }
+
+    .site-nav a:hover { color: var(--ink); background: var(--bg); }
+
+    .nav-brand {
+      font-family: var(--font-serif) !important;
+      font-size: 0.9rem !important;
+      letter-spacing: 0 !important;
+      color: var(--ink) !important;
+      margin-right: auto;
+    }
+
+    /* === PAGE SECTIONS === */
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page-section {
+      padding: var(--sp-xl) var(--sp-md);
+      border-bottom: 4px solid var(--bg);
+    }
+
+    .page-section-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+
+    /* === HOME HERO === */
+    .site-hero-full {
+      background: var(--surface);
+      padding: var(--sp-xl) var(--sp-md);
+      border-bottom: 1px solid var(--hairline);
+    }
+
+    .site-hero-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+
+    .site-label {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      display: block;
+      margin-bottom: var(--sp-md);
+    }
+
+    .site-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: var(--sp-md);
+    }
+
+    .site-title span {
+      display: block;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 0.58em;
+      color: var(--ink-muted);
+      margin-bottom: var(--sp-sm);
+    }
+
+    .site-byline {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--ink-muted);
+      margin-bottom: var(--sp-lg);
+    }
+
+    .site-intro {
+      font-size: 0.98rem;
+      line-height: 1.8;
+      color: var(--ink);
+      max-width: 600px;
+      margin-bottom: var(--sp-lg);
+    }
+
+    .highlight-bar {
+      width: 48px;
+      height: 3px;
+      background: var(--highlight);
+      border-radius: 2px;
+    }
+
+    /* === LESSON NAV CARDS (home) === */
+    .lesson-cards-grid {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-md);
+      margin-top: var(--sp-xl);
+    }
+
+    .lesson-nav-card {
+      background: var(--surface);
+      border-left: 5px solid var(--accent);
+      border-radius: var(--r-md);
+      box-shadow: var(--shadow-card);
+      padding: var(--sp-md) var(--sp-lg);
+      text-decoration: none;
+      display: block;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .lesson-nav-card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transform: translateY(-1px);
+    }
+
+    .lnc-num {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: block;
+      margin-bottom: var(--sp-xs);
+    }
+
+    .lnc-title {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: var(--sp-xs);
+    }
+
+    .lnc-q {
+      font-size: 0.83rem;
+      color: var(--ink-muted);
+      font-style: italic;
+    }
+
+    /* === WIDGET HERO === */
+    .widget-hero {
+      padding: var(--sp-xl) 0 var(--sp-lg);
+      border-bottom: 1px solid var(--hairline);
+      margin-bottom: var(--sp-xl);
+    }
+
+    .hero-flag {
+      display: flex;
+      gap: var(--sp-sm);
+      align-items: center;
+      margin-bottom: var(--sp-md);
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .hero-dot {
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: var(--hairline);
+    }
+
+    .hero-unit {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      color: var(--ink-muted);
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: var(--sp-md);
+    }
+
+    .hero-question {
+      font-size: 1rem;
+      color: var(--ink-muted);
+      font-style: italic;
+      margin-bottom: var(--sp-lg);
+      padding-left: var(--sp-md);
+      border-left: 3px solid var(--hairline);
+      line-height: 1.5;
+    }
+
+    .hero-accent-bar {
+      width: 40px; height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    /* === SHARED WIDGET COMPONENTS === */
+    .widget-section { margin-bottom: var(--sp-xl); }
+
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: var(--sp-lg);
+      padding-bottom: var(--sp-sm);
+      border-bottom: 1px solid var(--hairline);
+      display: block;
+    }
+
+    .card {
+      background: var(--surface);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--r-md);
+      box-shadow: var(--shadow-card);
+      padding: var(--sp-lg);
+      margin-bottom: var(--sp-lg);
+    }
+
+    .card-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: var(--sp-sm);
+    }
+
+    .card-title {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: var(--sp-md);
+      line-height: 1.3;
+    }
+
+    .card-body {
+      font-size: 0.93rem;
+      color: var(--ink);
+      margin-bottom: var(--sp-md);
+      line-height: 1.75;
+    }
+
+    .card-pov {
+      font-size: 0.875rem;
+      color: var(--ink-muted);
+      line-height: 1.65;
+      padding: var(--sp-md);
+      background: var(--bg);
+      border-radius: var(--r-sm);
+      border-top: 1px solid var(--hairline);
+      margin-top: var(--sp-md);
+    }
+
+    .pov-label, .tactic-label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: block;
+      margin-bottom: var(--sp-xs);
+    }
+
+    .tactic-label { color: var(--ink-muted); margin-top: var(--sp-sm); }
+
+    /* L56 timeline badge */
+    .timeline-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--sp-sm);
+      background: var(--bg);
+      border: 1px solid var(--hairline);
+      border-radius: 20px;
+      padding: var(--sp-xs) var(--sp-md);
+      margin-bottom: var(--sp-md);
+    }
+
+    .timeline-badge-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .timeline-badge-text {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--ink-muted);
+    }
+
+    /* L59 case snapshot */
+    .case-snapshot {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sp-md);
+      margin-bottom: var(--sp-md);
+      padding: var(--sp-sm) var(--sp-md);
+      background: var(--bg);
+      border-radius: var(--r-sm);
+      border: 1px solid var(--hairline);
+    }
+
+    .case-snapshot .snap-item { display: flex; flex-direction: column; min-width: 80px; }
+
+    .case-snapshot dt {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 2px;
+    }
+
+    .case-snapshot dd {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .ideal-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px var(--sp-sm);
+      border: 1px solid var(--accent);
+      border-radius: 12px;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: var(--sp-md);
+    }
+
+    /* ICED */
+    .iced-block {
+      background: var(--surface);
+      border-radius: var(--r-md);
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+    }
+
+    .iced-part {
+      display: flex;
+      gap: var(--sp-md);
+      padding: var(--sp-md) var(--sp-lg);
+      border-bottom: 1px solid var(--hairline);
+      align-items: flex-start;
+    }
+
+    .iced-part:last-child { border-bottom: none; }
+
+    .iced-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--surface);
+      background: var(--accent);
+      min-width: 26px;
+      height: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--r-sm);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .iced-text {
+      font-size: 0.93rem;
+      line-height: 1.75;
+      color: var(--ink);
+    }
+
+    /* Impact */
+    .impact-block {
+      background: var(--surface);
+      border-radius: var(--r-md);
+      box-shadow: var(--shadow-card);
+      padding: var(--sp-lg);
+      border-top: 3px solid var(--highlight);
+    }
+
+    .impact-block p {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--ink);
+    }
+
+    /* Sources */
+    .sources-block {
+      padding-top: var(--sp-lg);
+      border-top: 1px solid var(--hairline);
+      margin-top: var(--sp-xl);
+    }
+
+    .sources-list {
+      padding-left: var(--sp-lg);
+      list-style: decimal;
+    }
+
+    .sources-list li {
+      font-size: 0.83rem;
+      color: var(--ink-muted);
+      margin-bottom: var(--sp-sm);
+      line-height: 1.55;
+    }
+
+    .sources-list a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-decoration-color: var(--hairline);
+      word-break: break-all;
+    }
+
+    .sources-list a:hover { text-decoration-color: var(--accent); }
+
+    /* === QUIZ (embedded) === */
+    .quiz-section {
+      background: var(--surface);
+      border-radius: var(--r-lg);
+      padding: var(--sp-xl) var(--sp-lg);
+      box-shadow: var(--shadow-card);
+    }
+
+    /* Reuse quiz styles — quiz renders from JS into #quiz-root */
+    .q-prog-label {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: var(--ink-muted);
+      text-transform: uppercase;
+      margin-bottom: var(--sp-sm);
+    }
+
+    .q-progress-wrap {
+      background: var(--hairline);
+      border-radius: 4px;
+      height: 4px;
+      margin-bottom: var(--sp-xl);
+      overflow: hidden;
+    }
+
+    .q-progress-fill {
+      height: 100%;
+      background: var(--ink);
+      border-radius: 4px;
+      transition: width 0.4s ease;
+    }
+
+    .q-card {
+      background: var(--bg);
+      border-radius: var(--r-md);
+      padding: var(--sp-xl) var(--sp-md) var(--sp-md);
+      margin-bottom: var(--sp-md);
+    }
+
+    .q-tag {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      display: inline-block;
+      padding: 2px var(--sp-sm);
+      border-radius: 10px;
+      margin-bottom: var(--sp-md);
+      border: 1px solid var(--hairline);
+      color: var(--ink-muted);
+    }
+
+    .q-text {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--ink);
+      margin-bottom: var(--sp-lg);
+    }
+
+    .q-options { display: flex; flex-direction: column; gap: var(--sp-sm); }
+
+    .q-opt {
+      width: 100%;
+      text-align: left;
+      background: var(--surface);
+      border: 1.5px solid var(--hairline);
+      border-radius: var(--r-md);
+      padding: var(--sp-md) var(--sp-lg);
+      font-family: var(--font-sans);
+      font-size: 0.92rem;
+      color: var(--ink);
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      display: flex;
+      align-items: center;
+      gap: var(--sp-md);
+      line-height: 1.4;
+    }
+
+    .q-opt:hover:not(:disabled) { border-color: var(--ink); }
+    .q-opt:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+    .q-letter {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background: var(--hairline);
+      color: var(--ink-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .q-opt.correct { background: #EBF5EF; border-color: #1A6B3C; color: #1A6B3C; }
+    .q-opt.correct .q-letter { background: #1A6B3C; color: #fff; }
+    .q-opt.wrong   { background: #FAEAEA; border-color: #9B2020; color: #9B2020; }
+    .q-opt.wrong   .q-letter { background: #9B2020; color: #fff; }
+    .q-opt:disabled { cursor: default; }
+
+    .q-explanation {
+      display: none;
+      margin-top: var(--sp-md);
+      padding: var(--sp-md);
+      background: var(--surface);
+      border-radius: var(--r-sm);
+      border-left: 3px solid var(--hairline);
+    }
+
+    .q-explanation.show { display: block; }
+
+    .q-exp-label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      display: block;
+      margin-bottom: var(--sp-xs);
+    }
+
+    .q-exp-text { font-size: 0.88rem; line-height: 1.65; color: var(--ink); }
+
+    .q-next {
+      display: none;
+      width: 100%;
+      padding: var(--sp-md);
+      background: var(--ink);
+      color: #fff;
+      border: none;
+      border-radius: var(--r-md);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .q-next:hover { opacity: 0.85; }
+    .q-next.show { display: block; }
+
+    .q-score {
+      display: none;
+      text-align: center;
+      padding: var(--sp-lg) 0;
+    }
+
+    .q-score.show { display: block; }
+
+    .q-score-num {
+      font-family: var(--font-serif);
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1;
+    }
+
+    .q-score-lbl {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      display: block;
+      margin: var(--sp-sm) 0 var(--sp-md);
+    }
+
+    .q-score-msg { font-size: 0.95rem; color: var(--ink); line-height: 1.7; margin-bottom: var(--sp-lg); }
+
+    .q-retry {
+      padding: var(--sp-md) var(--sp-xl);
+      background: var(--ink);
+      color: #fff;
+      border: none;
+      border-radius: var(--r-md);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .q-retry:hover { opacity: 0.85; }
+
+    /* === FADE-IN === */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+  <!-- ── STICKY NAV ──────────────────────────────────────── -->
+  <nav class="site-nav" aria-label="Site navigation">
+    <a href="#home" class="nav-brand">Pursuing American Ideals</a>
+    <a href="#lesson-55">L55 Reagan</a>
+    <a href="#lesson-56">L56 Cold War</a>
+    <a href="#lesson-59">L59 Ideals</a>
+    <a href="#quiz">Quiz</a>
+  </nav>
+
+  <!-- ── HOME ───────────────────────────────────────────── -->
+  <section id="home" class="site-hero-full" aria-label="Home">
+    <div class="site-hero-inner">
+      <span class="site-label">AP U.S. History · Unit 8 · Jacobs HS D300</span>
+      <h1 class="site-title">
+        <span>A Digital Museum</span>
+        Pursuing American Ideals
+      </h1>
+      <p class="site-byline">By Luke Sanders &nbsp;·&nbsp; Spring 2026</p>
+      <p class="site-intro">From the Reagan Revolution to the fall of the Berlin Wall to landmark Supreme Court rulings, Unit 8 covers the forces that reshaped America from the early 1980s to right now. Three lessons. Three eras. One through-line: the ideals in the Constitution keep getting tested, and every generation has to decide whether they're going to defend them.</p>
+      <div class="highlight-bar" aria-hidden="true"></div>
+
+      <div class="lesson-cards-grid fade-in">
+        <a href="#lesson-55" class="lesson-nav-card" data-lesson="55">
+          <span class="lnc-num">Lesson 55 · 1981–1989</span>
+          <p class="lnc-title">A Shift to the Right Under Reagan</p>
+          <p class="lnc-q">How did the Reagan Revolution impact the nation?</p>
+        </a>
+        <a href="#lesson-56" class="lesson-nav-card" data-lesson="56">
+          <span class="lnc-num">Lesson 56 · 1985–1991</span>
+          <p class="lnc-title">Ending the Cold War</p>
+          <p class="lnc-q">What were the effects of Reagan's and Bush's foreign policy actions?</p>
+        </a>
+        <a href="#lesson-59" class="lesson-nav-card" data-lesson="59">
+          <span class="lnc-num">Lesson 59 · 2019–Present</span>
+          <p class="lnc-title">Moving Forward — Debating America's Founding Ideals</p>
+          <p class="lnc-q">How does our nation define and debate progress as we preserve American ideals?</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── LESSON 55 ───────────────────────────────────────── -->
+  <section id="lesson-55" class="page-section" data-lesson="55" aria-label="Lesson 55">
+    <div class="page-section-inner">
+
+      <header class="widget-hero">
+        <div class="hero-flag">
+          <span class="hero-eyebrow">Lesson 55</span>
+          <span class="hero-dot" aria-hidden="true"></span>
+          <span class="hero-unit">Unit 8 · Pursuing American Ideals</span>
+        </div>
+        <h2 class="hero-title">A Shift to the Right Under Reagan</h2>
+        <p class="hero-question">How did the Reagan Revolution impact the nation?</p>
+        <div class="hero-accent-bar" aria-hidden="true"></div>
+      </header>
+
+      <div class="widget-section">
+        <span class="section-label">Three Examples</span>
+
+        <article class="card fade-in">
+          <div class="card-eyebrow">01 · 1981</div>
+          <h3 class="card-title">Economic Recovery Tax Act (ERTA)</h3>
+          <p class="card-body">The Economic Recovery Tax Act of 1981 slashed the top marginal income tax rate from 70% to 50%, eventually all the way down to 28% by 1986. The theory was supply-side economics — cut taxes on top earners and they'll invest more, which creates jobs and growth that "trickle down" to everyone else. Real GDP grew at roughly 3.5% annually during Reagan's second term and the S&amp;P 500 rose about 113% over his presidency.</p>
+          <div class="card-pov">
+            <span class="pov-label">POV Tension</span>
+            Supporters point to economic growth and job creation as proof the cuts worked. Critics note that the share of national income going to the top 1% began its sharp upward climb in the early 1980s and never reversed — meaning the growth went disproportionately to people who were already wealthy.
+          </div>
+        </article>
+
+        <article class="card fade-in">
+          <div class="card-eyebrow">02 · 1981–1989</div>
+          <h3 class="card-title">Deregulation: Banking, Airlines, and Broadcasting</h3>
+          <p class="card-body">Reagan accelerated deregulation across multiple sectors. Banking deregulation allowed savings and loan institutions to take on far riskier investments. Airlines were already deregulating under Carter, but Reagan pushed further in finance and broadcasting. Short-term, consumers got cheaper airfares and more TV channels. Long-term, the consequences were more complicated.</p>
+          <div class="card-pov">
+            <span class="pov-label">POV Tension</span>
+            The savings and loan crisis of the late 1980s collapsed over 1,000 financial institutions — the federal bailout cost taxpayers an estimated $124 billion. Supporters say deregulation created a more dynamic economy. Critics say it created exactly the conditions for crisis it was supposed to prevent, and the bill went to ordinary Americans.
+          </div>
+        </article>
+
+        <article class="card fade-in">
+          <div class="card-eyebrow">03 · 1981–1989</div>
+          <h3 class="card-title">Military Buildup and a Tripling National Debt</h3>
+          <p class="card-body">Reagan dramatically increased defense spending — from $158 billion in 1981 to over $300 billion by 1989. Combined with tax cuts that reduced revenue and no significant cuts elsewhere, the national debt nearly tripled: from roughly $900 billion in 1980 to $2.8 trillion by 1989.</p>
+          <div class="card-pov">
+            <span class="pov-label">POV Tension</span>
+            Conservatives argue the military buildup pressured the Soviet Union and helped win the Cold War. Critics point out that the political acceptability of large peacetime deficits, normalized in the 1980s, became permanent. The U.S. has not run a sustained surplus since.
+          </div>
+        </article>
+      </div>
+
+      <div class="widget-section">
+        <span class="section-label">Modern Connection — ICED Method</span>
+        <div class="iced-block fade-in">
+          <div class="iced-part"><span class="iced-label">I</span><p class="iced-text">The Tax Policy Center, a nonpartisan research group run by the Urban Institute and the Brookings Institution, tracks the long-term distributional effects of U.S. tax policy changes going back to the Reagan era.</p></div>
+          <div class="iced-part"><span class="iced-label">C</span><p class="iced-text">According to their analysis, the share of income going to the top 1% of American households roughly doubled between 1980 and 2020 ("Historical Highest Marginal Income Tax Rates," Tax Policy Center, 2023).</p></div>
+          <div class="iced-part"><span class="iced-label">E</span><p class="iced-text">This is the direct downstream effect of cutting the top marginal rate from 70% to 28% over Reagan's two terms, combined with deregulation that increased returns for financial-sector investors.</p></div>
+          <div class="iced-part"><span class="iced-label">D</span><p class="iced-text">Today, every argument about whether to raise taxes on top earners, regulate Wall Street, or close the wealth gap is a direct continuation of the framework Reagan set in 1981. The debate's starting point was reset in those years and hasn't fully moved since.</p></div>
+        </div>
+      </div>
+
+      <div class="widget-section">
+        <span class="section-label">Importance &amp; Impact</span>
+        <div class="impact-block fade-in">
+          <p>The Reagan Revolution didn't just change policy — it reset the defaults of American economics. Tax cuts as a primary tool, deregulation as a default instinct, and large peacetime deficits as politically tolerable all became bipartisan habits after 1989. Every modern debate about marginal tax rates, financial regulation, and the national debt is a continuation of arguments that started in 1981.</p>
+        </div>
+      </div>
+
+      <footer class="sources-block">
+        <span class="section-label">Sources</span>
+        <ol class="sources-list">
+          <li>Tax Policy Center. "Historical Highest Marginal Income Tax Rates." 2023. <a href="https://www.taxpolicycenter.org/statistics/historical-highest-marginal-income-tax-rates" target="_blank" rel="noopener noreferrer">taxpolicycenter.org</a></li>
+          <li>Pew Research Center. "Trends in U.S. Income and Wealth Inequality." 2020. <a href="https://www.pewresearch.org/social-trends/2020/01/09/trends-in-income-and-wealth-inequality/" target="_blank" rel="noopener noreferrer">pewresearch.org</a></li>
+          <li>Congressional Budget Office. "The Long-Term Budget Outlook." <a href="https://www.cbo.gov/topics/budget" target="_blank" rel="noopener noreferrer">cbo.gov</a></li>
+        </ol>
+      </footer>
+
+    </div>
+  </section>
+
+  <!-- ── LESSON 56 ───────────────────────────────────────── -->
+  <section id="lesson-56" class="page-section" data-lesson="56" aria-label="Lesson 56">
+    <div class="page-section-inner">
+
+      <header class="widget-hero">
+        <div class="hero-flag">
+          <span class="hero-eyebrow">Lesson 56</span>
+          <span class="hero-dot" aria-hidden="true"></span>
+          <span class="hero-unit">Unit 8 · Pursuing American Ideals</span>
+        </div>
+        <h2 class="hero-title">Ending the Cold War</h2>
+        <p class="hero-question">What were the effects of Ronald Reagan's and George H. W. Bush's foreign policy actions?</p>
+        <div class="hero-accent-bar" aria-hidden="true"></div>
+      </header>
+
+      <div class="widget-section">
+        <span class="section-label">Three Examples</span>
+
+        <article class="card fade-in">
+          <div class="card-eyebrow">01 · 1981–1987</div>
+          <div class="timeline-badge"><span class="timeline-badge-dot" aria-hidden="true"></span><span class="timeline-badge-text">Reagan Doctrine + SDI</span></div>
+          <h3 class="card-title">Rejecting Détente: The Reagan Doctrine and "Star Wars"</h3>
+          <p class="card-body">Reagan rejected the détente strategy of Nixon and Carter. His approach: support anti-communist fighters in Nicaragua, Afghanistan, and Angola through covert funding (the Reagan Doctrine), while pushing an arms buildup the Soviets couldn't match. The Strategic Defense Initiative — a proposed space-based missile shield — was technically unworkable at the time, but the threat of an arms race the USSR couldn't afford was real economic pressure.</p>
+          <div class="card-pov">
+            <span class="pov-label">POV Tension</span>
+            One school credits Reagan's pressure with forcing the Soviet economic collapse. Another argues Gorbachev's own reform program, internal Soviet decay, and nationalist movements in Eastern Europe were the real causes — and Reagan just got credit for a collapse already happening.
+          </div>
+        </article>
+
+        <article class="card fade-in">
+          <div class="card-eyebrow">02 · 1985–1988</div>
+          <div class="timeline-badge"><span class="timeline-badge-dot" aria-hidden="true"></span><span class="timeline-badge-text">Geneva · Reykjavik · Washington · Moscow</span></div>
+          <h3 class="card-title">Reagan-Gorbachev Summits and the INF Treaty</h3>
+          <p class="card-body">Reagan and Soviet General Secretary Gorbachev held four summits between 1985 and 1988. The result was the INF Treaty in 1987 — the first arms control agreement to actually eliminate an entire class of nuclear weapons rather than just cap them. It destroyed over 2,600 missiles from both sides.</p>
+          <div class="card-pov">
+            <span class="pov-label">POV Tension</span>
+            The INF Treaty held for three decades before the Trump administration withdrew in 2019, citing Russian violations, restarting the arms competition the treaty had paused.
+          </div>
+        </article>
+
+        <article class="card fade-in">
+          <div class="card-eyebrow">03 · 1989–1991</div>
+          <div class="timeline-badge"><span class="timeline-badge-dot" aria-hidden="true"></span><span class="timeline-badge-text">Nov 9, 1989 · Dec 25, 1991</span></div>
+          <h3 class="card-title">The Berlin Wall Falls and the USSR Dissolves</h3>
+          <p class="card-body">On November 9, 1989, East Germany opened its borders and crowds began tearing down the Berlin Wall. Two years later, on December 25, 1991, the Soviet Union formally dissolved. President Bush deliberately played a low-key role — no triumphal speeches — to avoid humiliating Gorbachev and triggering a hardliner coup that might have reversed the whole thing.</p>
+          <div class="card-pov">
+            <span class="pov-label">POV Tension</span>
+            Bush's restraint was criticized at the time as too passive. Most historians now credit the quiet diplomacy as strategically correct — a humiliated Russia lashing back was a real risk, and that restraint shaped everything that followed.
+          </div>
+        </article>
+      </div>
+
+      <div class="widget-section">
+        <span class="section-label">Modern Connection — ICED Method</span>
+        <div class="iced-block fade-in">
+          <div class="iced-part"><span class="iced-label">I</span><p class="iced-text">Foreign policy scholar John Mearsheimer has argued for over a decade that NATO's post-Cold War expansion eastward was the fundamental driver of current tensions between Russia and the West.</p></div>
+          <div class="iced-part"><span class="iced-label">C</span><p class="iced-text">In a 2022 essay in <em>Foreign Affairs</em>, Mearsheimer wrote that U.S. policy after 1991 "ignored Russia's bright red lines" by encouraging Ukraine's aspirations to join NATO (Mearsheimer, "The Causes and Consequences of the Ukraine War," <em>Foreign Affairs</em>, 2022).</p></div>
+          <div class="iced-part"><span class="iced-label">E</span><p class="iced-text">Whether or not you accept his full thesis, the choices Bush Sr. and his successors made about NATO between 1989 and 1999 set the security architecture that Russia has been reacting against ever since.</p></div>
+          <div class="iced-part"><span class="iced-label">D</span><p class="iced-text">The Russian invasion of Ukraine in February 2022 and the ongoing war demonstrate that the Cold War didn't really end — it paused. The arguments over its terms are still active and still lethal.</p></div>
+        </div>
+      </div>
+
+      <div class="widget-section">
+        <span class="section-label">Importance &amp; Impact</span>
+        <div class="impact-block fade-in">
+          <p>The Cold War didn't end cleanly. NATO expanded to 14 new members after 1991, which Russia framed as betrayal. Nuclear arsenals never went to zero. The INF Treaty collapsed in 2019. And the U.S. role as the lone global superpower from 1991 onward — with military deployments from Iraq to Afghanistan to the Pacific — is a direct result of how the Cold War ended. Every major foreign policy debate of the last three decades traces back to that moment.</p>
+        </div>
+      </div>
+
+      <footer class="sources-block">
+        <span class="section-label">Sources</span>
+        <ol class="sources-list">
+          <li>Mearsheimer, John J. "The Causes and Consequences of the Ukraine War." <em>Foreign Affairs</em>, 2022. <a href="https://www.foreignaffairs.com/articles/russia-fsu/2022-04-12/causes-and-consequences-ukraine-war" target="_blank" rel="noopener noreferrer">foreignaffairs.com</a></li>
+          <li>Council on Foreign Relations. "NATO's Trajectory." 2024. <a href="https://www.cfr.org/backgrounder/north-atlantic-treaty-organization-nato" target="_blank" rel="noopener noreferrer">cfr.org</a></li>
+          <li>Reagan Presidential Library. "Reagan Foreign Policy." <a href="https://www.reaganlibrary.gov/reagans/reagan-administration/reagan-foreign-policy" target="_blank" rel="noopener noreferrer">reaganlibrary.gov</a></li>
+        </ol>
+      </footer>
+
+    </div>
+  </section>
+
+  <!-- ── LESSON 59 ───────────────────────────────────────── -->
+  <section id="lesson-59" class="page-section" data-lesson="59" aria-label="Lesson 59">
+    <div class="page-section-inner">
+
+      <header class="widget-hero">
+        <div class="hero-flag">
+          <span class="hero-eyebrow">Lesson 59</span>
+          <span class="hero-dot" aria-hidden="true"></span>
+          <span class="hero-unit">Unit 8 · Pursuing American Ideals</span>
+        </div>
+        <h2 class="hero-title">Moving Forward — Debating America's Founding Ideals</h2>
+        <p class="hero-question">How does our nation define and debate progress as we work to preserve American ideals?</p>
+        <div class="hero-accent-bar" aria-hidden="true"></div>
+      </header>
+
+      <div class="widget-section">
+        <span class="section-label">Three Examples</span>
+
+        <article class="card fade-in">
+          <div class="card-eyebrow">01 · Securing Liberty</div>
+          <span class="ideal-tag">First Amendment · Student Speech</span>
+          <h3 class="card-title">Mahanoy Area School District v. B.L. (2021)</h3>
+          <dl class="case-snapshot">
+            <div class="snap-item"><dt>Decided</dt><dd>June 2021</dd></div>
+            <div class="snap-item"><dt>Vote</dt><dd>8 – 1</dd></div>
+            <div class="snap-item"><dt>Court</dt><dd>U.S. Supreme Court</dd></div>
+            <div class="snap-item"><dt>Author</dt><dd>Justice Breyer</dd></div>
+          </dl>
+          <p class="card-body">A high school cheerleader posted a profanity-filled Snapchat off campus over the weekend. Her school suspended her from the team. The Supreme Court ruled 8-1 that the school violated her First Amendment rights — the most important student speech ruling since Tinker v. Des Moines in 1969, and the first to directly address off-campus, online student speech.</p>
+          <div class="card-pov">
+            <span class="pov-label">What It Settled (and Didn't)</span>
+            Schools have "diminished" authority over off-campus speech but the Court didn't draw a bright line. Schools can still police off-campus cyberbullying. But a private social media post from home, outside school hours, is now substantially First Amendment protected.
+            <span class="tactic-label">Tactic Used</span>
+            Strategic ACLU litigation, building on 50+ years of Tinker precedent, framed as a chilling effect on political speech.
+          </div>
+        </article>
+
+        <article class="card fade-in">
+          <div class="card-eyebrow">02 · Safeguarding Equality</div>
+          <span class="ideal-tag">Title VII · Employment · LGBTQ+ Rights</span>
+          <h3 class="card-title">Bostock v. Clayton County, Georgia (2020)</h3>
+          <dl class="case-snapshot">
+            <div class="snap-item"><dt>Decided</dt><dd>June 2020</dd></div>
+            <div class="snap-item"><dt>Vote</dt><dd>6 – 3</dd></div>
+            <div class="snap-item"><dt>Court</dt><dd>U.S. Supreme Court</dd></div>
+            <div class="snap-item"><dt>Author</dt><dd>Justice Gorsuch</dd></div>
+          </dl>
+          <p class="card-body">Title VII of the Civil Rights Act of 1964 prohibits employment discrimination "because of sex." The Supreme Court ruled 6-3 that this language also covers sexual orientation and gender identity. The majority opinion was written by Justice Gorsuch — a Trump appointee and committed textualist — applying a strict reading of what "because of sex" actually means.</p>
+          <div class="card-pov">
+            <span class="pov-label">Why It Mattered</span>
+            Before Bostock, LGBTQ+ employees in more than half of U.S. states had no explicit federal employment protection. The decision showed expanding equality can happen through reinterpretation of existing law, not just new legislation.
+            <span class="tactic-label">Tactic Used</span>
+            Strategic case consolidation — three separate cases combined to maximize the chance of a single unified national ruling.
+          </div>
+        </article>
+
+        <article class="card fade-in">
+          <div class="card-eyebrow">03 · Defending Democracy</div>
+          <span class="ideal-tag">Redistricting · Gerrymandering · Voting</span>
+          <h3 class="card-title">Rucho v. Common Cause (2019) — and the State-Level Response</h3>
+          <dl class="case-snapshot">
+            <div class="snap-item"><dt>Decided</dt><dd>June 2019</dd></div>
+            <div class="snap-item"><dt>Vote</dt><dd>5 – 4</dd></div>
+            <div class="snap-item"><dt>Court</dt><dd>U.S. Supreme Court</dd></div>
+            <div class="snap-item"><dt>Author</dt><dd>Chief Justice Roberts</dd></div>
+          </dl>
+          <p class="card-body">The Supreme Court ruled 5-4 that federal courts cannot hear partisan gerrymandering claims — they're "political questions." The ruling closed the federal door on challenges to maps drawn to entrench one party's power. But the opinion explicitly noted that state courts and state constitutions remained valid venues.</p>
+          <div class="card-pov">
+            <span class="pov-label">What Happened Next</span>
+            Since 2019, advocacy groups shifted to the state level: independent redistricting commissions in Michigan, Colorado, Arizona, and California; state supreme court challenges; and ballot initiatives. When one venue closes, the fight moves to another.
+            <span class="tactic-label">Tactic Used</span>
+            Venue-shifting — from federal courts to state courts, ballot initiatives, and independent commission campaigns.
+          </div>
+        </article>
+      </div>
+
+      <div class="widget-section">
+        <span class="section-label">Modern Connection — ICED Method</span>
+        <div class="iced-block fade-in">
+          <div class="iced-part"><span class="iced-label">I</span><p class="iced-text">In June 2021, the Supreme Court issued its first ruling specifically addressing off-campus, online student speech in <em>Mahanoy Area School District v. B.L.</em></p></div>
+          <div class="iced-part"><span class="iced-label">C</span><p class="iced-text">Writing for an 8-1 majority, Justice Breyer held that schools have "diminished" authority over off-campus student speech and that punishing the student's Snapchat post violated the First Amendment (<em>Mahanoy Area School District v. B.L.</em>, 594 U.S. ___, 2021).</p></div>
+          <div class="iced-part"><span class="iced-label">E</span><p class="iced-text">The ruling extended the 1969 <em>Tinker v. Des Moines</em> framework into the era of social media, partially protecting off-campus online speech while leaving room for schools to address cyberbullying and cheating.</p></div>
+          <div class="iced-part"><span class="iced-label">D</span><p class="iced-text">For students today, this is the case that governs what you can post on Snapchat or Instagram without your school punishing you — the modern version of Mary Beth Tinker's black armband, just digital. Defending liberty isn't a one-time achievement; it gets re-litigated in every generation's medium.</p></div>
+        </div>
+      </div>
+
+      <div class="widget-section">
+        <span class="section-label">Importance &amp; Impact</span>
+        <div class="impact-block fade-in">
+          <p>The American ideals in the Declaration and the Constitution aren't self-enforcing. They get defended through specific tactics: strategic litigation, Supreme Court precedent-building, state-level workarounds, ballot initiatives, and grassroots pressure. Each generation re-fights for them in whatever venues are available. The fights look different now — Snapchat instead of armbands, redistricting commissions instead of Voting Rights Act lawsuits — but the underlying work is the same.</p>
+        </div>
+      </div>
+
+      <footer class="sources-block">
+        <span class="section-label">Sources</span>
+        <ol class="sources-list">
+          <li><em>Mahanoy Area School District v. B.L.</em>, 594 U.S. ___ (2021). <a href="https://www.supremecourt.gov/opinions/20pdf/20-255_g3bi.pdf" target="_blank" rel="noopener noreferrer">supremecourt.gov</a></li>
+          <li>ACLU. "Mahanoy Area School District v. B.L." <a href="https://www.aclu.org/cases/mahanoy-area-school-district-v-bl" target="_blank" rel="noopener noreferrer">aclu.org</a></li>
+          <li><em>Bostock v. Clayton County</em>, 590 U.S. 644 (2020). <a href="https://www.supremecourt.gov/opinions/19pdf/17-1618_hfci.pdf" target="_blank" rel="noopener noreferrer">supremecourt.gov</a></li>
+          <li><em>Rucho v. Common Cause</em>, 588 U.S. 684 (2019). <a href="https://www.supremecourt.gov/opinions/18pdf/18-422_9ol1.pdf" target="_blank" rel="noopener noreferrer">supremecourt.gov</a></li>
+          <li>Brennan Center for Justice. "Redistricting Commissions." <a href="https://www.brennancenter.org/our-work/research-reports/redistricting-commissions" target="_blank" rel="noopener noreferrer">brennancenter.org</a></li>
+        </ol>
+      </footer>
+
+    </div>
+  </section>
+
+  <!-- ── QUIZ ───────────────────────────────────────────── -->
+  <section id="quiz" class="page-section" aria-label="Unit 8 Quiz">
+    <div class="page-section-inner">
+      <header class="widget-hero">
+        <div class="hero-flag">
+          <span class="hero-eyebrow">Interactive Review</span>
+          <span class="hero-dot" aria-hidden="true"></span>
+          <span class="hero-unit">All Three Lessons</span>
+        </div>
+        <h2 class="hero-title">Unit 8 Quiz</h2>
+        <p class="hero-question">5 questions covering Lessons 55, 56, and 59.</p>
+        <div class="hero-accent-bar" style="background:#FFD700" aria-hidden="true"></div>
+      </header>
+
+      <div class="quiz-section">
+        <div id="qz-container">
+          <p class="q-prog-label" id="qz-prog-label">Question 1 of 5</p>
+          <div class="q-progress-wrap"><div class="q-progress-fill" id="qz-prog-fill" style="width:0%"></div></div>
+          <div class="q-card" id="qz-card">
+            <span class="q-tag" id="qz-tag"></span>
+            <p class="q-text" id="qz-text"></p>
+            <div class="q-options" id="qz-options"></div>
+            <div class="q-explanation" id="qz-explanation">
+              <span class="q-exp-label">Why this answer</span>
+              <p class="q-exp-text" id="qz-exp-text"></p>
+            </div>
+          </div>
+          <button class="q-next" id="qz-next">Next Question →</button>
+        </div>
+
+        <div class="q-score" id="qz-score" role="status" aria-live="polite">
+          <p class="q-score-num" id="qz-score-num"></p>
+          <span class="q-score-lbl">out of 5 correct</span>
+          <p class="q-score-msg" id="qz-score-msg"></p>
+          <button class="q-retry" id="qz-retry">Try Again</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    /* ── Fade-in observer ── */
+    const fadeObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); fadeObs.unobserve(e.target); }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.fade-in').forEach(el => fadeObs.observe(el));
+    setTimeout(() => document.querySelectorAll('.fade-in:not(.visible)').forEach(el => el.classList.add('visible')), 350);
+
+    /* ── Quiz ── */
+    const QS = [
+      { lesson:'Lesson 55 — Reagan', q:"What was the primary economic theory behind Reagan's 1981 tax cuts?",
+        options:['Keynesian demand-side stimulus','Supply-side / trickle-down economics','Modern Monetary Theory','Import substitution industrialization'], correct:1,
+        exp:"Reagan's ERTA was built on supply-side economics — cut taxes on top earners and corporations to spur investment that trickles down to everyone through jobs and growth." },
+      { lesson:'Lesson 56 — Cold War', q:"What did the INF Treaty of 1987 accomplish?",
+        options:['It capped the total warheads each side could hold','It reduced defense budgets by 20%','It eliminated an entire class of nuclear missiles — the first arms deal to do that','It established mutual assured destruction as official policy'], correct:2,
+        exp:"Previous arms deals only capped weapons. The INF actually eliminated a whole category — intermediate-range nuclear missiles — destroying over 2,600 missiles total. The U.S. withdrew in 2019." },
+      { lesson:'Lesson 56 — Cold War', q:"What happened on November 9, 1989?",
+        options:['The Soviet Union formally dissolved','Reagan and Gorbachev signed the INF Treaty','East Germany opened its borders and crowds tore down the Berlin Wall','Bush gave his "New World Order" speech'], correct:2,
+        exp:"November 9, 1989 is when East Germany opened its borders and crowds gathered to tear down the Berlin Wall. The Soviet Union's formal dissolution came later — December 25, 1991." },
+      { lesson:'Lesson 59 — American Ideals', q:"Which 2021 Supreme Court case was the first to directly address off-campus, online student speech?",
+        options:['Tinker v. Des Moines','Bell v. Itawamba County School Board','Mahanoy Area School District v. B.L.','Hazelwood School District v. Kuhlmeier'], correct:2,
+        exp:"Mahanoy (2021) was decided 8-1. A cheerleader's off-campus Snapchat got her suspended from the team; the Court ruled it violated the First Amendment. Tinker (1969) established student speech rights but predated the internet." },
+      { lesson:'Lesson 59 — American Ideals', q:"What did Rucho v. Common Cause (2019) mean for partisan gerrymandering?",
+        options:['Federal courts must review all congressional maps','Partisan gerrymandering is unconstitutional','Federal courts can\'t hear these cases — but state courts still can','Equal Protection prohibits party consideration in redistricting'], correct:2,
+        exp:"Roberts wrote that partisan gerrymandering is a 'political question' beyond federal courts. But the ruling left state courts open. Since 2019, reformers have won real victories at the state level through commissions and ballot initiatives." }
+    ];
+
+    const QST = { cur: 0, answers: [], done: false };
+    const LETTERS = ['A','B','C','D'];
+    const MSGS = [
+      { min:5, msg:'Perfect score! Lessons 55, 56, and 59 are in solid shape.' },
+      { min:4, msg:'Strong work. One slip — review what you missed and you\'re ready.' },
+      { min:3, msg:'Solid foundation. Go back through the lesson exhibits and try again.' },
+      { min:0, msg:'Keep going. The ICED paragraphs in each lesson have the key facts.' }
+    ];
+
+    function qRender() {
+      const q = QS[QST.cur];
+      QST.done = false;
+      document.getElementById('qz-prog-label').textContent = `Question ${QST.cur+1} of ${QS.length}`;
+      document.getElementById('qz-prog-fill').style.width = (QST.cur / QS.length * 100) + '%';
+      document.getElementById('qz-tag').textContent = q.lesson;
+      document.getElementById('qz-text').textContent = q.q;
+      const ol = document.getElementById('qz-options');
+      ol.innerHTML = '';
+      q.options.forEach((opt, i) => {
+        const b = document.createElement('button');
+        b.className = 'q-opt';
+        b.innerHTML = `<span class="q-letter">${LETTERS[i]}</span>${opt}`;
+        b.addEventListener('click', () => qAnswer(i));
+        ol.appendChild(b);
+      });
+      document.getElementById('qz-explanation').classList.remove('show');
+      const nb = document.getElementById('qz-next');
+      nb.classList.remove('show');
+      nb.textContent = QST.cur < QS.length-1 ? 'Next Question →' : 'See Results →';
+    }
+
+    function qAnswer(sel) {
+      if (QST.done) return;
+      QST.done = true;
+      const q = QS[QST.cur];
+      QST.answers.push({ sel, correct: q.correct });
+      document.querySelectorAll('.q-opt').forEach((b, i) => {
+        b.disabled = true;
+        if (i === q.correct) b.classList.add('correct');
+        else if (i === sel) b.classList.add('wrong');
+      });
+      document.getElementById('qz-exp-text').textContent = q.exp;
+      document.getElementById('qz-explanation').classList.add('show');
+      document.getElementById('qz-next').classList.add('show');
+    }
+
+    function qScore() {
+      document.getElementById('qz-container').style.display = 'none';
+      const score = QST.answers.filter(a => a.sel === a.correct).length;
+      document.getElementById('qz-score-num').textContent = score;
+      document.getElementById('qz-score-msg').textContent = MSGS.find(m => score >= m.min).msg;
+      document.getElementById('qz-score').classList.add('show');
+    }
+
+    document.getElementById('qz-next').addEventListener('click', () => {
+      QST.cur++;
+      if (QST.cur >= QS.length) qScore();
+      else qRender();
+    });
+
+    document.getElementById('qz-retry').addEventListener('click', () => {
+      QST.cur = 0; QST.answers = []; QST.done = false;
+      document.getElementById('qz-score').classList.remove('show');
+      document.getElementById('qz-container').style.display = 'block';
+      qRender();
+    });
+
+    qRender();
+  </script>
+
+</body>
+</html>
