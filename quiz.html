@@ -94,7 +94,7 @@
           'Import substitution industrialization'
         ],
         correct: 1,
-        explanation: "Reagan's Economic Recovery Tax Act of 1981 was built on supply-side economics — the idea that cutting taxes on top earners and corporations would spur investment that would eventually benefit everyone through job creation and growth."
+        hint: "Supply-side: cut taxes on the wealthy, expect investment to trickle down. Keynesian is the opposite — boost demand from the bottom."
       },
       {
         lesson: 'Lesson 56 — Cold War',
@@ -106,7 +106,7 @@
           'It established the principle of "mutually assured destruction" as official policy'
         ],
         correct: 2,
-        explanation: 'The INF Treaty was historic because previous arms control agreements (like SALT I and II) only capped weapons. The INF actually eliminated a whole category — intermediate-range nuclear missiles — from both the U.S. and Soviet arsenals. It destroyed over 2,600 missiles. The U.S. withdrew from the treaty in 2019.'
+        hint: "The INF actually eliminated missiles, not just capped them. Over 2,600 missiles were destroyed — first arms deal to ever do that."
       },
       {
         lesson: 'Lesson 56 — Cold War',
@@ -118,7 +118,7 @@
           'George H. W. Bush gave his "New World Order" speech to Congress'
         ],
         correct: 2,
-        explanation: "November 9, 1989 is when East Germany announced it would open its borders and crowds gathered to tear down the Berlin Wall. The Soviet Union's formal dissolution came later — December 25, 1991. The Berlin Wall opening was the symbolic end of the Cold War divide in Europe."
+        hint: "November 9 is the Wall. The USSR formally dissolved later, on December 25, 1991. The INF was signed in 1987, not 1989."
       },
       {
         lesson: 'Lesson 59 — American Ideals',
@@ -130,7 +130,7 @@
           'Hazelwood School District v. Kuhlmeier'
         ],
         correct: 2,
-        explanation: 'Mahanoy Area School District v. B.L. (2021) was decided 8-1 by the Supreme Court. A cheerleader posted a profanity-filled Snapchat off campus over the weekend; her school suspended her from the team. The Court ruled this violated her First Amendment rights. Tinker (1969) established student speech rights but predated the internet; Mahanoy extended those protections to off-campus social media.'
+        hint: "Mahanoy (2021) was the first case about off-campus social media. Tinker is from 1969 and Hazelwood covers school newspapers, not personal posts."
       },
       {
         lesson: 'Lesson 59 — American Ideals',
@@ -142,7 +142,7 @@
           'The Equal Protection Clause prohibits any consideration of party affiliation in redistricting'
         ],
         correct: 2,
-        explanation: "Chief Justice Roberts wrote for a 5-4 majority that partisan gerrymandering claims present \"political questions\" beyond federal courts' reach. But the ruling explicitly left the door open for state courts and state constitutions. Since 2019, redistricting reform advocates have shifted to state-level fights — independent commissions, state supreme court challenges, and ballot initiatives — with real success in states like Michigan and Colorado."
+        hint: "Roberts called it a political question. Federal courts stay out, but state courts can still act — that's where the fights moved after 2019."
       }
     ];
 
@@ -173,12 +173,13 @@
       q.options.forEach((opt, i) => {
         const btn = document.createElement('button');
         btn.className = 'option-btn';
-        btn.innerHTML = `<span class="option-letter">${LETTERS[i]}</span>${opt}`;
+        btn.innerHTML = `<span class="option-letter">${LETTERS[i]}</span><span class="option-text">${opt}</span>`;
         btn.addEventListener('click', () => handleAnswer(i));
         optList.appendChild(btn);
       });
 
-      document.getElementById('explanation').classList.remove('show');
+      const expl = document.getElementById('explanation');
+      expl.classList.remove('show');
       document.getElementById('next-btn').classList.remove('show');
       document.getElementById('next-btn').textContent =
         STATE.current < QUESTIONS.length - 1 ? 'Next Question →' : 'See Results →';
@@ -196,8 +197,11 @@
         else if (i === selected) btn.classList.add('wrong');
       });
 
-      document.getElementById('explanation-text').textContent = q.explanation;
-      document.getElementById('explanation').classList.add('show');
+      const isCorrect = selected === q.correct;
+      if (!isCorrect) {
+        document.getElementById('explanation-text').textContent = q.hint;
+        document.getElementById('explanation').classList.add('show');
+      }
       document.getElementById('next-btn').classList.add('show');
     }
 
