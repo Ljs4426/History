@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reflection | Pursuing American Ideals</title>
+  <meta name="description" content="Personal reflection on Unit 8 — what I learned, what surprised me, and how the past connects to my life today.">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Site navigation">
+    <div class="site-nav-inner">
+      <a href="index.html" class="nav-brand">
+        <span class="nav-brand-dot" aria-hidden="true"></span>
+        Pursuing American Ideals
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="lesson-55.html" class="nav-link">L55 Reagan</a>
+        <a href="lesson-56.html" class="nav-link">L56 Cold War</a>
+        <a href="lesson-59.html" class="nav-link">L59 Ideals</a>
+        <a href="quiz.html" class="nav-link">Quiz</a>
+        <a href="reflection.html" class="nav-link active">Reflect</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <header class="widget-hero">
+      <div class="hero-flag">
+        <span class="hero-eyebrow">Reflection</span>
+        <span class="hero-dot" aria-hidden="true"></span>
+        <span class="hero-unit">Unit 8 · Pursuing American Ideals</span>
+      </div>
+      <h1 class="hero-title">Personal Reflection</h1>
+      <p class="hero-question">What did I learn, what surprised me, and how does this connect to my life today?</p>
+      <div class="hero-accent-bar" aria-hidden="true"></div>
+    </header>
+
+    <section class="widget-section" aria-label="Reflection">
+      <span class="section-label">My Reflection</span>
+
+      <div class="reflection-block fade-in">
+        <h2>What Went Well</h2>
+        <p>Picking Reagan as the first lesson was the easiest part — his stuff is everywhere. You literally cannot have a conversation about taxes, the national debt, or income inequality without ending up back in 1981. Once I understood supply-side economics and why it mattered, the other examples basically explained themselves. The Cold War lesson was harder because there's so much that happened between 1981 and 1991, and cutting it down to three examples without losing the main point was frustrating at first.</p>
+        <p>The Supreme Court cases were probably my favorite part of the whole project just because they're actually relevant to my life right now. The Mahanoy case is literally about what you can post on Snapchat without your school punishing you — that's not ancient history, that's Tuesday. It didn't feel like homework in the same way.</p>
+      </div>
+
+      <div class="reflection-block fade-in">
+        <h2>What I'd Change</h2>
+        <p>I'd spend less time on the design and more time on the analysis sections. I got into making the site look good and then had to rush through the ICED modern connections more than I wanted to. The Mearsheimer citation for the Cold War lesson in particular — I think I could have explained the connection to Ukraine more clearly if I'd given it more time.</p>
+        <p>I also would have started the research earlier. I kept thinking I knew the Reagan stuff already from class notes, but when I actually went to write the ICED section I realized I needed real numbers and specific citations, and finding those took longer than expected.</p>
+      </div>
+
+      <div class="reflection-block fade-in">
+        <h2>What I Learned from Other Presentations</h2>
+        <p>Looking at other presentations made me realize I didn't connect my three lessons to each other as much as I could have. Reagan's economic decisions, the way the Cold War ended, and modern Supreme Court cases are actually different chapters of the same story — about what America thinks it owes its citizens, what the government is supposed to do, and who gets to decide. The through-line is the same across all three lessons and I could have made that more obvious instead of treating each one as its own separate thing.</p>
+        <p>I also saw presentations that used visuals in a way that actually helped explain the content — like timelines that made the Cold War sequence of events much clearer. That's something I want to get better at.</p>
+      </div>
+
+      <div class="reflection-block fade-in">
+        <h2>How I See Myself in This</h2>
+        <p>The thing that surprised me most doing this project is how little has actually changed. The same arguments about taxes and deficits that Reagan started in 1981 are still happening right now. The Cold War didn't really end — Russia is still pushing back against NATO in almost exactly the same way it was in the 1990s, except now people are dying because of it. And every time a Supreme Court case comes up about free speech or voting rights, it traces back to frameworks set decades before I was born.</p>
+        <p>I always thought history was about stuff that's already over. This project made me realize that most of it is still going, just in different forms. The wealth gap that started widening in the 1980s is the same one that shows up in every conversation about student loans and housing costs today. The arms control treaties that fell apart are why there's a renewed nuclear threat right now. The redistricting cases from 2019 are going to determine how much my vote counts when I'm actually old enough to cast one.</p>
+        <p>So I guess the answer to "how do I see myself as someone engaged in the economy and society" is: more engaged than I thought I'd be, because it turns out none of this is optional. You don't get to opt out of a tax system or a foreign policy or a Supreme Court. You just have to actually understand what's happening well enough to have an opinion about it.</p>
+      </div>
+    </section>
+
+    <nav class="page-pager" aria-label="Page navigation">
+      <a href="quiz.html" class="pager-link prev">
+        <span class="pager-label">← Back</span>
+        <span class="pager-title">Unit 8 Quiz</span>
+      </a>
+      <a href="index.html" class="pager-link next">
+        <span class="pager-label">Done →</span>
+        <span class="pager-title">Back to Home</span>
+      </a>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      Luke Sanders · Jacobs HS D300 · Unit 8
+    </div>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+    setTimeout(() => {
+      document.querySelectorAll('.fade-in:not(.visible)').forEach(el => el.classList.add('visible'));
+    }, 300);
+  </script>
+
+</body>
+</html>
